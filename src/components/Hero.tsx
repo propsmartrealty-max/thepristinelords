@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Download, Calendar, ArrowRight, Waves, ShieldCheck, Volume2, VolumeX, Video, Image as ImageIcon } from 'lucide-react';
+import React, { useState, useRef } from 'react';
+import { Download, Calendar, ArrowRight, Waves, ShieldCheck, Volume2, VolumeX, Video, Film, Image as ImageIcon } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/projectData';
 import { AmbientWaterBlobs } from './AmbientWaterBlobs';
 
@@ -9,9 +9,10 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenVipTour }) => {
-  const [viewMode, setViewMode] = useState<'video' | 'gallery'>('video');
+  const [videoSource, setVideoSource] = useState<'mp4' | 'youtube' | 'gallery'>('mp4');
   const [isMuted, setIsMuted] = useState(true);
   const [activeSlide, setActiveSlide] = useState(0);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   const heroSlides = [
     {
@@ -34,18 +35,44 @@ export const Hero: React.FC<HeroProps> = ({ onOpenVipTour }) => {
     }
   ];
 
+  // Scraped Direct MP4 Video URL from pristinethe-lords.com
+  const mp4VideoUrl = "https://pristinethe-lords.com/images/Websitevideo.mp4";
+
   // Official YouTube Video ID: MAA4n_Z8nWE
   const youtubeVideoId = "MAA4n_Z8nWE";
   const embedUrl = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1`;
+
+  const toggleAudio = () => {
+    if (videoSource === 'mp4' && videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    } else {
+      setIsMuted(!isMuted);
+    }
+  };
 
   return (
     <section className="relative min-h-[96vh] flex items-center justify-center pt-20 pb-20 md:pt-28 md:pb-28 overflow-hidden bg-gradient-to-b from-white via-sky-50/20 to-white">
       {/* Morphing Water Fluid Blobs */}
       <AmbientWaterBlobs />
 
-      {/* 🎬 DYNAMIC BACKGROUND: OFFICIAL YOUTUBE WALKTHROUGH (MAA4n_Z8nWE) */}
+      {/* 🎬 DYNAMIC BACKGROUND: NATIVE MP4 VIDEO OR YOUTUBE OR GALLERY */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        {viewMode === 'video' ? (
+        {videoSource === 'mp4' ? (
+          <div className="absolute inset-0 w-full h-full flex items-center justify-center overflow-hidden">
+            <video
+              ref={videoRef}
+              autoPlay
+              loop
+              muted={isMuted}
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover object-center filter brightness-[0.96] contrast-105"
+            >
+              <source src={mp4VideoUrl} type="video/mp4" />
+            </video>
+          </div>
+        ) : videoSource === 'youtube' ? (
           <div className="absolute inset-0 w-full h-full pointer-events-none flex items-center justify-center overflow-hidden">
             {/* 16:9 Full-bleed cover container */}
             <div className="relative w-[180vw] h-[180vh] min-w-full min-h-full">
@@ -81,7 +108,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenVipTour }) => {
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         {/* Project Subtitle Pill with Glassmorphism */}
-        <div className="inline-flex items-center space-x-2 px-5 py-1.5 rounded-full glass-card-luxe mb-5 shadow-sm border border-white/90">
+        <div className="inline-flex items-center space-x-2 px-5 py-1.5 rounded-full colorful-chip mb-5 shadow-sm">
           <Waves className="w-3.5 h-3.5 text-pristine-orange animate-pulse" />
           <span className="text-xs uppercase font-bold tracking-[0.25em] text-pristine-orange font-google">
             THE LORD'S BY PRISTINE DEVELOPER
@@ -135,52 +162,93 @@ export const Hero: React.FC<HeroProps> = ({ onOpenVipTour }) => {
         </div>
 
         {/* 🌟 HERO CINEMATIC VIDEO & PERSPECTIVE CONTROL PILL */}
-        <div className="w-full max-w-xl mx-auto mb-6">
-          <div className="p-1.5 rounded-full glass-card-luxe border border-white/95 shadow-glass-luxury flex items-center justify-between font-google">
-            <button
-              onClick={() => setViewMode('video')}
-              className={`px-4 sm:px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center space-x-2 ${
-                viewMode === 'video'
-                  ? 'btn-pristine-orange shadow-pristine-orange scale-105'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/70'
-              }`}
-            >
-              <Video className="w-3.5 h-3.5" />
-              <span>OFFICIAL FILM</span>
-            </button>
-
-            <button
-              onClick={() => {
-                setViewMode('gallery');
-                setActiveSlide(0);
-              }}
-              className={`px-4 sm:px-6 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center space-x-2 ${
-                viewMode === 'gallery'
-                  ? 'btn-pristine-orange shadow-pristine-orange scale-105'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/70'
-              }`}
-            >
-              <ImageIcon className="w-3.5 h-3.5" />
-              <span>STILL PERSPECTIVES</span>
-            </button>
-
-            {viewMode === 'video' && (
+        <div className="w-full max-w-2xl mx-auto mb-6">
+          <div className="p-1.5 rounded-full glass-card-luxe border border-white/95 shadow-glass-luxury flex items-center justify-between font-google flex-wrap gap-1">
+            <div className="flex items-center space-x-1">
               <button
-                onClick={() => setIsMuted(!isMuted)}
-                title={isMuted ? "Unmute Video Audio" : "Mute Video Audio"}
-                className="w-9 h-9 rounded-full bg-white hover:bg-gray-100 flex items-center justify-center text-gray-700 shadow-sm transition-colors mr-1"
-                aria-label="Toggle Sound"
+                onClick={() => setVideoSource('mp4')}
+                className={`px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center space-x-1.5 ${
+                  videoSource === 'mp4'
+                    ? 'btn-pristine-orange shadow-pristine-orange scale-105'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-white/70'
+                }`}
               >
-                {isMuted ? <VolumeX className="w-4 h-4 text-gray-500" /> : <Volume2 className="w-4 h-4 text-pristine-orange" />}
+                <Film className="w-3.5 h-3.5" />
+                <span>OFFICIAL MP4 FILM</span>
+              </button>
+
+              <button
+                onClick={() => setVideoSource('youtube')}
+                className={`px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center space-x-1.5 ${
+                  videoSource === 'youtube'
+                    ? 'btn-pristine-orange shadow-pristine-orange scale-105'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-white/70'
+                }`}
+              >
+                <Video className="w-3.5 h-3.5" />
+                <span>4K WALKTHROUGH</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  setVideoSource('gallery');
+                  setActiveSlide(0);
+                }}
+                className={`px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all duration-300 flex items-center space-x-1.5 ${
+                  videoSource === 'gallery'
+                    ? 'btn-pristine-orange shadow-pristine-orange scale-105'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-white/70'
+                }`}
+              >
+                <ImageIcon className="w-3.5 h-3.5" />
+                <span>PERSPECTIVES</span>
+              </button>
+            </div>
+
+            {/* Audio Toggle Button */}
+            {(videoSource === 'mp4' || videoSource === 'youtube') && (
+              <button
+                onClick={toggleAudio}
+                className="p-2 rounded-full hover:bg-white/80 text-gray-700 hover:text-pristine-orange transition-colors flex items-center space-x-1 px-3"
+                title={isMuted ? "Unmute Audio" : "Mute Audio"}
+                aria-label={isMuted ? "Unmute sound" : "Mute sound"}
+              >
+                {isMuted ? (
+                  <VolumeX className="w-4 h-4 text-gray-500" />
+                ) : (
+                  <Volume2 className="w-4 h-4 text-pristine-orange animate-pulse" />
+                )}
+                <span className="text-[10px] uppercase font-bold text-gray-600 hidden sm:inline">
+                  {isMuted ? 'MUTED' : 'LIVE SOUND'}
+                </span>
               </button>
             )}
           </div>
+
+          {/* Perspective Sub-Tabs (when Still Perspectives is active) */}
+          {videoSource === 'gallery' && (
+            <div className="flex items-center justify-center gap-2 mt-3 animate-fadeIn">
+              {heroSlides.map((slide, idx) => (
+                <button
+                  key={slide.id}
+                  onClick={() => setActiveSlide(idx)}
+                  className={`px-4 py-1 rounded-full text-[11px] font-bold tracking-wider transition-all ${
+                    activeSlide === idx
+                      ? 'bg-pristine-orange text-white shadow-sm'
+                      : 'bg-white/80 text-gray-700 hover:bg-white'
+                  }`}
+                >
+                  {slide.tag}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        {/* Financed By Capsule */}
-        <div className="p-3 px-6 rounded-full glass-card-luxe border border-white/90 shadow-glass-luxury flex items-center space-x-2.5 text-xs text-gray-600">
-          <span>THIS PROJECT IS FINANCED BY:</span>
-          <strong className="text-gray-900 font-serif tracking-wide text-sm">{PROJECT_DETAILS.financedBy}</strong>
+        {/* Official Financing Seal Banner */}
+        <div className="inline-flex items-center space-x-2 px-6 py-2 rounded-full glass-card-luxe border border-white/90 text-gray-800 text-xs font-google shadow-glass-luxury">
+          <span className="text-gray-500">THIS PROJECT IS FINANCED BY:</span>
+          <strong className="text-gray-900 font-bold tracking-wide">{PROJECT_DETAILS.financedBy}</strong>
         </div>
       </div>
     </section>
