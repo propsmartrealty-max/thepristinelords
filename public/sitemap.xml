@@ -4,10 +4,10 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- 🏠 PRIMARY APEX DOMAIN & LUXURY SHOWCASE -->
+  <!-- 🏠 1. PRIMARY APEX DOMAIN & LUXURY SHOWCASE -->
   <url>
     <loc>https://pristinethelords.in/</loc>
-    <lastmod>2026-08-24T00:00:00+05:30</lastmod>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://pristinethelords.in/" />
@@ -42,76 +42,118 @@
     </video:video>
   </url>
 
-  <!-- 📐 PROGRAMMATIC CLUSTER 1: 3 BHK LUXURY RESIDENCE CLUSTER -->
+  <!-- 📐 2. 3 BHK LUXURY RESIDENCE CLUSTER -->
   <url>
     <loc>https://pristinethelords.in/#residence-3bhk</loc>
-    <lastmod>2026-08-24T00:00:00+05:30</lastmod>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://static.wixstatic.com/media/53bf92_e276491ad1f9499697e3ad4a31ca21de~mv2.jpg</image:loc>
+      <image:title>The Lord's 3 BHK Floor Plan and Sanctioned Layout</image:title>
+      <image:caption>1,554 Sq.Ft RERA Carpet 3 BHK Luxury Suite</image:caption>
+    </image:image>
   </url>
 
-  <!-- 👑 PROGRAMMATIC CLUSTER 2: 4.5 BHK PALATIAL ESTATE CLUSTER -->
+  <!-- 👑 3. 4.5 BHK PALATIAL ESTATE & SKY VILLA CLUSTER -->
   <url>
     <loc>https://pristinethelords.in/#residence-4.5bhk</loc>
-    <lastmod>2026-08-24T00:00:00+05:30</lastmod>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
+    <image:image>
+      <image:loc>https://static.wixstatic.com/media/53bf92_cdbaa9ee5fbd4fed9806a57c489a8aec~mv2.jpg</image:loc>
+      <image:title>The Lord's 4.5 BHK Palatial Estate Floor Plan</image:title>
+      <image:caption>2,005 Sq.Ft RERA Carpet 4.5 BHK Estate with Dual Balconies</image:caption>
+    </image:image>
   </url>
 
-  <!-- 🗺️ PROGRAMMATIC CLUSTER 3: MASTER SITE LAYOUT & FLOOR PLANS -->
+  <!-- 🗺️ 4. MASTER SITE LAYOUT & ARCHITECTURAL BLUEPRINTS -->
   <url>
     <loc>https://pristinethelords.in/#master-layout</loc>
-    <lastmod>2026-08-24T00:00:00+05:30</lastmod>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🏊 PROGRAMMATIC CLUSTER 4: 20+ SIGNATURE LIFESTYLE AMENITIES -->
+  <!-- 🏊 5. 20+ SIGNATURE LIFESTYLE AMENITIES -->
   <url>
     <loc>https://pristinethelords.in/#amenities</loc>
-    <lastmod>2026-08-24T00:00:00+05:30</lastmod>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 📍 PROGRAMMATIC CLUSTER 5: STRATEGIC BANER-PASHAN LINK ROAD CONNECTIVITY -->
+  <!-- 🛠️ 6. 10-TIER ARCHITECTURAL SPECIFICATIONS -->
+  <url>
+    <loc>https://pristinethelords.in/#specifications</loc>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 📍 7. STRATEGIC BANER-PASHAN LINK ROAD CONNECTIVITY & GOOGLE MAPS PLACE -->
   <url>
     <loc>https://pristinethelords.in/#location</loc>
-    <lastmod>2026-08-24T00:00:00+05:30</lastmod>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🌍 PROGRAMMATIC CLUSTER 6: GLOBAL NRI REAL ESTATE & FEMA DESK -->
+  <!-- 🚗 8. INTERACTIVE COMMUTE & TRANSIT DURATION MATRIX -->
   <url>
-    <loc>https://pristinethelords.in/#nri-corner</loc>
-    <lastmod>2026-08-24T00:00:00+05:30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- 📊 PROGRAMMATIC CLUSTER 7: PUNE REAL ESTATE MARKET & INFRASTRUCTURE SWEEP -->
-  <url>
-    <loc>https://pristinethelords.in/#pune-market-dominance</loc>
-    <lastmod>2026-08-24T00:00:00+05:30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- 🔍 PROGRAMMATIC CLUSTER 8: WEST PUNE SEARCH & CORRIDOR DIRECTORY -->
-  <url>
-    <loc>https://pristinethelords.in/#corridor-seo</loc>
-    <lastmod>2026-08-24T00:00:00+05:30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.90</priority>
-  </url>
-
-  <!-- 🏗️ PROGRAMMATIC CLUSTER 9: MAHARERA CONSTRUCTION TRACKER -->
-  <url>
-    <loc>https://pristinethelords.in/#construction-status</loc>
-    <lastmod>2026-08-24T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/#commute-matrix</loc>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
+  </url>
+
+  <!-- 🌍 9. GLOBAL NRI REAL ESTATE DESK & MULTI-CURRENCY CONVERTER -->
+  <url>
+    <loc>https://pristinethelords.in/#nri-corner</loc>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 📊 10. PUNE REAL ESTATE MARKET SWEEP & INFRASTRUCTURE INTELLIGENCE -->
+  <url>
+    <loc>https://pristinethelords.in/#pune-market-dominance</loc>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 🔍 11. WEST PUNE SEARCH & CORRIDOR DIRECTORY (12 CLUSTERS) -->
+  <url>
+    <loc>https://pristinethelords.in/#corridor-seo</loc>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 🏗️ 12. MAHARERA AUDITED CONSTRUCTION MILESTONES -->
+  <url>
+    <loc>https://pristinethelords.in/#construction-status</loc>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ❓ 13. FREQUENTLY ASKED QUESTIONS (FAQ SCHEMA) -->
+  <url>
+    <loc>https://pristinethelords.in/#faq</loc>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 📥 14. MASTER BROCHURE & BLUEPRINT DOWNLOAD -->
+  <url>
+    <loc>https://pristinethelords.in/#download-brochure</loc>
+    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
 
 </urlset>
