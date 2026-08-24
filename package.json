@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "index:ping": "bash scripts/ping-indexers.sh"
   },
   "dependencies": {
     "clsx": "^2.1.1",
