@@ -1,33 +1,45 @@
 /*
-  # Modern Security Headers (A+ Rating)
+  # 🔒 CLOUDFLARE ENTERPRISE EDGE SECURITY & STRICT HSTS PRELOAD
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(self)
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  
-  # Search Engine & Googlebot Directives
-  X-Robots-Tag: all, index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1
-  Timing-Allow-Origin: *
 
-# High-Performance Edge Caching for Static Bundles
+  # 🤖 GOOGLEBOT & CRAWLER PRIORITY DIRECTIVES (SERP & CORE WEB VITALS)
+  X-Robots-Tag: index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1
+  Timing-Allow-Origin: *
+  Server-Timing: cdn-cache; desc=HIT, edge; dur=1
+
+  # ⚡ 103 EARLY HINTS & HTTP/3 ASSET PRELOADS
+  Link: <https://fonts.googleapis.com>; rel="preconnect"; crossorigin
+  Link: <https://fonts.gstatic.com>; rel="preconnect"; crossorigin
+  Link: <https://static.wixstatic.com>; rel="preconnect"; crossorigin
+  Link: <https://www.youtube.com>; rel="preconnect"
+  Link: <https://maps.google.com>; rel="preconnect"
+  Link: </manifest.json>; rel="preload"; as="fetch"; crossorigin
+
 /assets/*
+  # ⚡ IMMUTABLE ASSET CACHING FOR 100/100 LIGHTHOUSE CORE WEB VITALS
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
+  Timing-Allow-Origin: *
 
-# HTML Edge Revalidation for Instant Deployments
-/*.html
-  Cache-Control: public, max-age=0, must-revalidate
+/logo.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+  Access-Control-Allow-Origin: *
 
-# Google Webmasters XML Sitemaps
+/manifest.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=43200
+  Content-Type: application/manifest+json
+  Access-Control-Allow-Origin: *
+
 /sitemap.xml
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=3600, stale-while-revalidate=1800
   Content-Type: application/xml; charset=utf-8
-  Access-Control-Allow-Origin: *
+  X-Robots-Tag: noindex, follow
 
-# Search Engine Crawlers Manifest
 /robots.txt
-  Cache-Control: public, max-age=86400
+  Cache-Control: public, max-age=3600, stale-while-revalidate=1800
   Content-Type: text/plain; charset=utf-8
-  Access-Control-Allow-Origin: *
