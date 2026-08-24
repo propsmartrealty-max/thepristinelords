@@ -1,0 +1,15 @@
+/* TEAM */
+Developer: Pristine Developers
+Official Website: https://pristinethelords.in
+Location: Baner-Pashan Link Road, Someshwarwadi, Pashan, Pune - 411008, Maharashtra, India
+RERA Number: P52100078557
+Financed By: Capri Global Capital Limited (CGCL)
+Sales Inquiry: propsmartrealty@gmail.com
+Phone: +91-9209090022
+
+/* SITE SPECIFICATIONS */
+Standards: HTML5, CSS3, ES2024, TypeScript, React 18, Tailwind CSS, Vite
+Infrastructure: Cloudflare Edge Global Network (330+ PoPs), HTTP/3 QUIC, 103 Early Hints
+PWA: Service Worker v1.0, Web App Manifest
+Language: en-IN (English - India)
+Hreflang Targets: en-IN, en-AE, en-US, en-GB, en-SG, x-default
