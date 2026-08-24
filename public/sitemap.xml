@@ -11,10 +11,10 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://pristinethelords.in/" />
-    <xhtml:link rel="alternate" hreflang="en-AE" href="https://pristinethelords.in/#nri-corner" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://pristinethelords.in/#nri-corner" />
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://pristinethelords.in/#nri-corner" />
-    <xhtml:link rel="alternate" hreflang="en-SG" href="https://pristinethelords.in/#nri-corner" />
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://pristinethelords.in/nri-investment-dubai-uae" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://pristinethelords.in/nri-investment-usa" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://pristinethelords.in/nri-investment-uk" />
+    <xhtml:link rel="alternate" hreflang="en-SG" href="https://pristinethelords.in/nri-investment-singapore" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pristinethelords.in/" />
     <image:image>
       <image:loc>https://static.wixstatic.com/media/53bf92_cdbaa9ee5fbd4fed9806a57c489a8aec~mv2.jpg</image:loc>
@@ -26,14 +26,9 @@
       <image:title>The Lord's Italian Marble Grand Living Hall</image:title>
       <image:caption>Sanctioned Luxury Residence Interiors with Imported Statuario Marble</image:caption>
     </image:image>
-    <image:image>
-      <image:loc>https://static.wixstatic.com/media/53bf92_a732dc7d5fc64454b3fa7e982e4834ac~mv2.jpg</image:loc>
-      <image:title>The Lord's Level 34 Sky Lounge and Rooftop Promenade</image:title>
-      <image:caption>Open Air Starlight Sky Deck Overlooking Pashan Lake</image:caption>
-    </image:image>
     <video:video>
       <video:thumbnail_loc>https://static.wixstatic.com/media/53bf92_cdbaa9ee5fbd4fed9806a57c489a8aec~mv2.jpg</video:thumbnail_loc>
-      <video:title>The Lord's by Pristine Developers Official 4K Cinematic Walkthrough</video:title>
+      <video:title>The Lord's by Pristine Developers Official 4K Walkthrough Film</video:title>
       <video:description>Experience 34-storey luxury residences on Baner-Pashan Link Road, Pune. MahaRERA: P52100078557.</video:description>
       <video:player_loc>https://www.youtube.com/embed/MAA4n_Z8nWE</video:player_loc>
       <video:duration>180</video:duration>
@@ -42,115 +37,115 @@
     </video:video>
   </url>
 
-  <!-- 📐 2. 3 BHK LUXURY RESIDENCE CLUSTER -->
+  <!-- 📐 2. PRISTINE THE LORDS 3 BHK LUXURY RESIDENCES -->
   <url>
-    <loc>https://pristinethelords.in/#residence-3bhk</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-3-bhk-luxury-apartments-baner</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://static.wixstatic.com/media/53bf92_e276491ad1f9499697e3ad4a31ca21de~mv2.jpg</image:loc>
-      <image:title>The Lord's 3 BHK Floor Plan and Sanctioned Layout</image:title>
-      <image:caption>1,554 Sq.Ft RERA Carpet 3 BHK Luxury Suite</image:caption>
+      <image:title>Pristine The Lords 3 BHK Floor Plan and Layout</image:title>
+      <image:caption>Sanctioned 1,554 Sq.Ft RERA Carpet 3 BHK Luxury Suite</image:caption>
     </image:image>
   </url>
 
-  <!-- 👑 3. 4.5 BHK PALATIAL ESTATE & SKY VILLA CLUSTER -->
+  <!-- 👑 3. PRISTINE THE LORDS 4.5 BHK PALATIAL ESTATE & SKY VILLA -->
   <url>
-    <loc>https://pristinethelords.in/#residence-4.5bhk</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-4-5-bhk-sky-villa-penthouses-pune</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
       <image:loc>https://static.wixstatic.com/media/53bf92_cdbaa9ee5fbd4fed9806a57c489a8aec~mv2.jpg</image:loc>
-      <image:title>The Lord's 4.5 BHK Palatial Estate Floor Plan</image:title>
-      <image:caption>2,005 Sq.Ft RERA Carpet 4.5 BHK Estate with Dual Balconies</image:caption>
+      <image:title>Pristine The Lords 4.5 BHK Palatial Estate Floor Plan</image:title>
+      <image:caption>Sanctioned 2,005 Sq.Ft RERA Carpet 4.5 BHK Palatial Residence with Dual Balconies</image:caption>
     </image:image>
   </url>
 
-  <!-- 🗺️ 4. MASTER SITE LAYOUT & ARCHITECTURAL BLUEPRINTS -->
+  <!-- 🗺️ 4. PRISTINE THE LORDS MASTER LAYOUT & BLUEPRINTS -->
   <url>
-    <loc>https://pristinethelords.in/#master-layout</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-master-layout-floor-plans</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🏊 5. 20+ SIGNATURE LIFESTYLE AMENITIES -->
+  <!-- 🏊 5. PRISTINE THE LORDS 20+ SIGNATURE AMENITIES -->
   <url>
-    <loc>https://pristinethelords.in/#amenities</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-luxury-amenities-sky-lounge</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🛠️ 6. 10-TIER ARCHITECTURAL SPECIFICATIONS -->
+  <!-- 🛠️ 6. PRISTINE THE LORDS 10-TIER ARCHITECTURAL SPECIFICATIONS -->
   <url>
-    <loc>https://pristinethelords.in/#specifications</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-specifications-mivan-italian-marble</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 📍 7. STRATEGIC BANER-PASHAN LINK ROAD CONNECTIVITY & GOOGLE MAPS PLACE -->
+  <!-- 📍 7. PRISTINE THE LORDS LOCATION & BANER-PASHAN LINK ROAD -->
   <url>
-    <loc>https://pristinethelords.in/#location</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-pashan-link-road-location</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🚗 8. INTERACTIVE COMMUTE & TRANSIT DURATION MATRIX -->
+  <!-- 🚗 8. PRISTINE THE LORDS COMMUTE & TRANSIT MATRIX -->
   <url>
-    <loc>https://pristinethelords.in/#commute-matrix</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-transit-commute-hinjewadi-balewadi</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- 🌍 9. GLOBAL NRI REAL ESTATE DESK & MULTI-CURRENCY CONVERTER -->
+  <!-- 🌍 9. PRISTINE THE LORDS NRI INVESTMENT & FEMA DESK -->
   <url>
-    <loc>https://pristinethelords.in/#nri-corner</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-nri-real-estate-investment-pune</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 📊 10. PUNE REAL ESTATE MARKET SWEEP & INFRASTRUCTURE INTELLIGENCE -->
+  <!-- 📊 10. PUNE LUXURY REAL ESTATE MARKET SWEEP -->
   <url>
-    <loc>https://pristinethelords.in/#pune-market-dominance</loc>
+    <loc>https://pristinethelords.in/pune-luxury-real-estate-market-sweep-above-2-crore</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🔍 11. WEST PUNE SEARCH & CORRIDOR DIRECTORY (12 CLUSTERS) -->
+  <!-- 🔍 11. BANER & WEST PUNE REAL ESTATE KEYWORD DIRECTORY -->
   <url>
-    <loc>https://pristinethelords.in/#corridor-seo</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-keyword-search-directory</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🏗️ 12. MAHARERA AUDITED CONSTRUCTION MILESTONES -->
+  <!-- 🏗️ 12. PRISTINE THE LORDS MAHARERA CONSTRUCTION TRACKER -->
   <url>
-    <loc>https://pristinethelords.in/#construction-status</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-maharera-p52100078557-construction-status</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- ❓ 13. FREQUENTLY ASKED QUESTIONS (FAQ SCHEMA) -->
+  <!-- ❓ 13. PRISTINE THE LORDS FREQUENTLY ASKED QUESTIONS -->
   <url>
-    <loc>https://pristinethelords.in/#faq</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-faqs-price-carpet-area-possession</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- 📥 14. MASTER BROCHURE & BLUEPRINT DOWNLOAD -->
+  <!-- 📥 14. PRISTINE THE LORDS OFFICIAL BROCHURE DOWNLOAD -->
   <url>
-    <loc>https://pristinethelords.in/#download-brochure</loc>
+    <loc>https://pristinethelords.in/pristine-the-lords-brochure-download-pdf</loc>
     <lastmod>2026-08-25T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>

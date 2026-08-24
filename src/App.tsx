@@ -31,6 +31,26 @@ import { FloatingWaterPillIndicator } from './components/FloatingWaterPillIndica
 import { Toast } from './components/Toast';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
+const CLEAN_PATH_TO_SECTION: Record<string, string> = {
+  '/pristine-the-lords-3-bhk-luxury-apartments-baner': 'residences',
+  '/pristine-the-lords-4-5-bhk-sky-villa-penthouses-pune': 'residences',
+  '/pristine-the-lords-master-layout-floor-plans': 'master-layout',
+  '/pristine-the-lords-luxury-amenities-sky-lounge': 'amenities',
+  '/pristine-the-lords-specifications-mivan-italian-marble': 'specifications',
+  '/pristine-the-lords-baner-pashan-link-road-location': 'location',
+  '/pristine-the-lords-transit-commute-hinjewadi-balewadi': 'commute-matrix',
+  '/pristine-the-lords-nri-real-estate-investment-pune': 'nri-corner',
+  '/nri-investment-dubai-uae': 'nri-corner',
+  '/nri-investment-usa': 'nri-corner',
+  '/nri-investment-uk': 'nri-corner',
+  '/nri-investment-singapore': 'nri-corner',
+  '/pune-luxury-real-estate-market-sweep-above-2-crore': 'pune-market-dominance',
+  '/pristine-the-lords-baner-keyword-search-directory': 'corridor-seo',
+  '/pristine-the-lords-maharera-p52100078557-construction-status': 'construction-status',
+  '/pristine-the-lords-faqs-price-carpet-area-possession': 'faq',
+  '/pristine-the-lords-brochure-download-pdf': 'download-brochure'
+};
+
 export function App() {
   const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
   const [isVipTourModalOpen, setIsVipTourModalOpen] = useState(false);
@@ -45,6 +65,20 @@ export function App() {
   const handleShowToast = (msg: string) => {
     setToastMessage(msg);
   };
+
+  // Automatic clean URL section smooth scrolling on initial load
+  useEffect(() => {
+    const currentPath = window.location.pathname.toLowerCase().replace(/\/$/, '');
+    const targetSectionId = CLEAN_PATH_TO_SECTION[currentPath];
+    if (targetSectionId) {
+      setTimeout(() => {
+        const el = document.getElementById(targetSectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 300);
+    }
+  }, []);
 
   // Lock background scroll when modal is active
   useEffect(() => {
