@@ -191,3 +191,26 @@
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* 📱 GOOGLE MOBILE STANDARDS: Safe Area Insets & Touch Optimizations */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent horizontal overflow on mobile viewports */
+  body, html {
+    max-width: 100vw;
+    overflow-x: hidden;
+    touch-action: manipulation;
+  }
+  
+  /* Touch target standard >= 44x44px for Google Mobile Indexing */
+  button, a {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
