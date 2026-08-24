@@ -1,11 +1,37 @@
+# Universal Search Engine Crawlers Directives
 User-agent: *
 Allow: /
+Allow: /assets/
+Allow: /logo.png
+Allow: /sitemap.xml
 
-# Googlebot specific directives
+# Google Crawlers (Google Search & AI Overviews)
 User-agent: Googlebot
 Allow: /
 Allow: /assets/
 Allow: /logo.png
 
-# Sitemaps
+User-agent: Googlebot-Image
+Allow: /
+Allow: /assets/
+Allow: /logo.png
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Microsoft Bing
+User-agent: Bingbot
+Allow: /
+
+# Apple Spotlight & Siri Knowledge Graph
+User-agent: Applebot
+Allow: /
+
+# DuckDuckGo & Privacy Search
+User-agent: DuckDuckBot
+Allow: /
+
+# Sitemaps & Canonical Host
+Host: https://www.pristinedeveloper.com
 Sitemap: https://www.pristinedeveloper.com/the-lords/sitemap.xml
+Sitemap: https://thepristinelords.manisha-yewle87.workers.dev/sitemap.xml

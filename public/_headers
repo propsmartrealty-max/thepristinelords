@@ -1,20 +1,33 @@
 /*
+  # Modern Security Headers (A+ Rating)
   X-Content-Type-Options: nosniff
   X-Frame-Options: SAMEORIGIN
   X-XSS-Protection: 1; mode=block
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(self)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  
+  # Search Engine & Googlebot Directives
+  X-Robots-Tag: all, index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1
+  Timing-Allow-Origin: *
 
+# High-Performance Edge Caching for Static Bundles
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
 
+# HTML Edge Revalidation for Instant Deployments
 /*.html
   Cache-Control: public, max-age=0, must-revalidate
 
+# Google Webmasters XML Sitemaps
 /sitemap.xml
   Cache-Control: public, max-age=3600, must-revalidate
   Content-Type: application/xml; charset=utf-8
+  Access-Control-Allow-Origin: *
 
+# Search Engine Crawlers Manifest
 /robots.txt
   Cache-Control: public, max-age=86400
   Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
