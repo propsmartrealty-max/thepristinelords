@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- 🏠 PRIMARY LANDING PAGE & LUXURY SHOWCASE -->
+  <!-- 🏠 PRIMARY APEX DOMAIN & LUXURY SHOWCASE -->
   <url>
     <loc>https://pristinethelords.in/</loc>
     <lastmod>2026-08-24</lastmod>
-    <changefreq>weekly</changefreq>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://pristinethelords.in/" />
     <xhtml:link rel="alternate" hreflang="en-AE" href="https://pristinethelords.in/#nri-corner" />
@@ -25,59 +26,84 @@
       <image:title>The Lord's Italian Marble Grand Living Hall</image:title>
       <image:caption>Sanctioned Luxury Residence Interiors with Imported Statuario Marble</image:caption>
     </image:image>
+    <video:video>
+      <video:thumbnail_loc>https://static.wixstatic.com/media/53bf92_cdbaa9ee5fbd4fed9806a57c489a8aec~mv2.jpg</video:thumbnail_loc>
+      <video:title>The Lord's by Pristine Developers Official 4K Cinematic Walkthrough</video:title>
+      <video:description>Experience 34-storey luxury residences on Baner-Pashan Link Road, Pune. MahaRERA: P52100078557.</video:description>
+      <video:player_loc>https://www.youtube.com/embed/MAA4n_Z8nWE</video:player_loc>
+      <video:duration>180</video:duration>
+      <video:publication_date>2024-01-01T00:00:00+05:30</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
 
-  <!-- 📐 3 BHK LUXURY RESIDENCE CLUSTER -->
+  <!-- 📐 PROGRAMMATIC CLUSTER 1: 3 BHK LUXURY RESIDENCE CLUSTER -->
   <url>
     <loc>https://pristinethelords.in/#residence-3bhk</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
 
-  <!-- 👑 4.5 BHK PALATIAL ESTATE CLUSTER -->
+  <!-- 👑 PROGRAMMATIC CLUSTER 2: 4.5 BHK PALATIAL ESTATE CLUSTER -->
   <url>
     <loc>https://pristinethelords.in/#residence-4.5bhk</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
   </url>
 
-  <!-- 🗺️ MASTER SITE LAYOUT & FLOOR PLANS -->
+  <!-- 🗺️ PROGRAMMATIC CLUSTER 3: MASTER SITE LAYOUT & FLOOR PLANS -->
   <url>
     <loc>https://pristinethelords.in/#master-layout</loc>
     <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
 
-  <!-- 🏊 20+ SIGNATURE LIFESTYLE AMENITIES -->
+  <!-- 🏊 PROGRAMMATIC CLUSTER 4: 20+ SIGNATURE LIFESTYLE AMENITIES -->
   <url>
     <loc>https://pristinethelords.in/#amenities</loc>
     <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
 
-  <!-- 📍 STRATEGIC LOCATION & TRANSIT CORRIDOR -->
+  <!-- 📍 PROGRAMMATIC CLUSTER 5: STRATEGIC BANER-PASHAN LINK ROAD CONNECTIVITY -->
   <url>
     <loc>https://pristinethelords.in/#location</loc>
     <lastmod>2026-08-24</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
   </url>
 
-  <!-- 🌍 GLOBAL NRI DESK & INVESTMENT CALCULATOR -->
+  <!-- 🌍 PROGRAMMATIC CLUSTER 6: GLOBAL NRI REAL ESTATE & FEMA DESK -->
   <url>
     <loc>https://pristinethelords.in/#nri-corner</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
+    <priority>0.90</priority>
   </url>
 
-  <!-- 📊 PUNE LUXURY REAL ESTATE MARKET SWEEP -->
+  <!-- 📊 PROGRAMMATIC CLUSTER 7: PUNE REAL ESTATE MARKET & INFRASTRUCTURE SWEEP -->
   <url>
     <loc>https://pristinethelords.in/#pune-market-dominance</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 🔍 PROGRAMMATIC CLUSTER 8: WEST PUNE SEARCH & CORRIDOR DIRECTORY -->
+  <url>
+    <loc>https://pristinethelords.in/#corridor-seo</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <!-- 🏗️ PROGRAMMATIC CLUSTER 9: MAHARERA CONSTRUCTION TRACKER -->
+  <url>
+    <loc>https://pristinethelords.in/#construction-status</loc>
     <lastmod>2026-08-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
