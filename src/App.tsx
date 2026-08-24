@@ -20,6 +20,7 @@ import { EmiCalculator } from './components/EmiCalculator';
 import { FAQSection } from './components/FAQSection';
 import { ProgrammaticSeoHub } from './components/ProgrammaticSeoHub';
 import { CorridorSeoMatrix } from './components/CorridorSeoMatrix';
+import { SearchQueryCommandCenter } from './components/SearchQueryCommandCenter';
 import { PuneMarketDominanceSweep } from './components/PuneMarketDominanceSweep';
 import { Footer } from './components/Footer';
 import { BrochureModal } from './components/BrochureModal';
@@ -191,6 +192,9 @@ export function App() {
 
           {/* Strategic SEO Corridor Matrix */}
           <CorridorSeoMatrix />
+
+          {/* 🎯 Pristine The Lords Baner Hardened Search Query Command Center */}
+          <SearchQueryCommandCenter />
 
           {/* 📊 Pune Luxury Real Estate Market Sweep & Infrastructure Intelligence */}
           <PuneMarketDominanceSweep />
