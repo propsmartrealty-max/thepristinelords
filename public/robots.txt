@@ -1,4 +1,4 @@
-# 🤖 UNIVERSAL ENTERPRISE SEARCH ENGINE CRAWLER DIRECTIVES
+# 🤖 GOOGLE SEARCH CONSOLE & ENTERPRISE CRAWLER DIRECTIVES
 # Target Domain: https://pristinethelords.in
 # Project: The Lord's by Pristine Developers (Baner-Pashan Link Road, Pune)
 # MahaRERA: P52100078557
@@ -9,7 +9,7 @@ Disallow: /api/
 Disallow: /scratch/
 Disallow: /temp/
 
-# 🔍 GOOGLEBOT SPECIFIC RULES (Google Search, Google Shopping, Gemini Voice)
+# 🔍 GOOGLE SEARCH ENGINE CRAWLERS (GSC & CORE WEB VITALS)
 User-agent: Googlebot
 Allow: /
 Allow: /assets/
@@ -29,6 +29,16 @@ Allow: /videos/
 User-agent: Google-Extended
 Allow: /
 
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+# 🌐 GLOBAL COMPLIANT SEARCH ENGINE CRAWLERS
 User-agent: Bingbot
 Allow: /
 
@@ -38,5 +48,11 @@ Allow: /
 User-agent: DuckDuckBot
 Allow: /
 
-# 🗺️ OFFICIAL XML SITEMAP LOCATION
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# 🗺️ VERIFIED XML SITEMAP DIRECTIVE FOR GOOGLE SEARCH CONSOLE
 Sitemap: https://pristinethelords.in/sitemap.xml
