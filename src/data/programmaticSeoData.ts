@@ -71,6 +71,30 @@ export const PROGRAMMATIC_SEO_PAGES: ProgrammaticPageData[] = [
     ]
   },
   {
+    slug: "flats-near-wakeshwar-temple-pashan",
+    targetKeyword: "Flats near Wakeshwar Temple Baner Pashan Link Road",
+    h1Title: "LUXURY RESIDENCES BESIDE WAKESHWAR TEMPLE, SOMESHWARWADI",
+    metaDescription: "The Lord's by Pristine Developers is situated beside the serene heritage Wakeshwar Temple on Baner-Pashan Link Road. Unhindered lake breeze and lush green surroundings.",
+    locationArea: "Beside Wakeshwar Temple, Someshwarwadi, Pashan",
+    configuration: "3 & 4.5 BHK Spiritual & Serene Homes",
+    carpetArea: "1,554 to 2,005 Sq.Ft",
+    startingPrice: "₹ 2.57 CR* Onwards",
+    proximityKey: "Direct 0 KM Access to Wakeshwar Heritage Precinct",
+    rentalYield: "4.9% Projected Net Yield",
+    highlights: [
+      "Tranquil location facing historic temple greenery and open hill breeze",
+      "Low noise microclimate with superior air quality (AQI < 45)",
+      "Wide arterial access connecting Baner Main Road and Pashan Sus Road",
+      "100% Vaastu-optimized cardinal orientations"
+    ],
+    faqs: [
+      {
+        q: "Where is The Lord's located relative to Wakeshwar Temple?",
+        a: "The Lord's is situated directly adjacent to Wakeshwar Temple on Baner-Pashan Link Road, Someshwarwadi, Pashan, Pune - 411008."
+      }
+    ]
+  },
+  {
     slug: "luxury-apartments-near-hinjewadi-it-park",
     targetKeyword: "Luxury Apartments near Hinjewadi IT Park Pune",
     h1Title: "EXECUTIVE LUXURY RESIDENCES NEAR HINJEWADI IT PARK, PUNE",
@@ -95,6 +119,54 @@ export const PROGRAMMATIC_SEO_PAGES: ProgrammaticPageData[] = [
     ]
   },
   {
+    slug: "mivan-construction-luxury-apartments-pune",
+    targetKeyword: "Mivan Construction Luxury Apartments in Pune West",
+    h1Title: "MIVAN ALUMINIUIM FORMWORK MONOLITH RESIDENCES — THE LORD'S",
+    metaDescription: "Engineered with advanced Mivan aluminium monolithic casting for superior earthquake resistance, zero joints, smooth finishes, and long-lasting durability.",
+    locationArea: "Baner-Pashan Link Road, Pune",
+    configuration: "3 & 4.5 BHK Mivan Engineered Units",
+    carpetArea: "1,554 to 2,005 Sq.Ft",
+    startingPrice: "₹ 2.57 CR* Onwards",
+    proximityKey: "Engineered by Pristine Developers • RERA P52100078557",
+    rentalYield: "5.0% Projected Net Yield",
+    highlights: [
+      "100% RCC monolithic structure with zero brick joint seepage risk",
+      "Superior acoustic damping and thermal insulation across all storeys",
+      "Precision door and window openings with SGU solar glass",
+      "High seismic safety rating compliant with Indian Standards IS 1893"
+    ],
+    faqs: [
+      {
+        q: "Why is Mivan construction superior for luxury high-rises?",
+        a: "Mivan aluminium formwork provides monolithic casting where walls and slabs are cast simultaneously, resulting in earthquake resistance, moisture impermeability, and razor-sharp interior finishes."
+      }
+    ]
+  },
+  {
+    slug: "34-storey-sky-deck-penthouses-pashan",
+    targetKeyword: "34 Storey Sky Deck Luxury Towers in Pashan Pune",
+    h1Title: "34-STOREY ICONIC TOWERS WITH LEVEL 34 SKY LOUNGE",
+    metaDescription: "Rise above Pune's skyline with 34-storey architectural towers featuring Level 34 Sky Deck, stargazing telescopes, open-air cabanas, and panoramic Pashan Lake vistas.",
+    locationArea: "Pashan Skyline, Pune",
+    configuration: "3 & 4.5 BHK Sky Residences",
+    carpetArea: "1,554 to 2,005 Sq.Ft",
+    startingPrice: "₹ 2.57 CR* Onwards",
+    proximityKey: "Highest Elevation in Baner-Pashan Corridor",
+    rentalYield: "5.3% Projected Annual Yield",
+    highlights: [
+      "Level 34 rooftop sky lounge with 360-degree horizon panoramas",
+      "Observation telescopes for stargazing and planetary viewing",
+      "Private resident cabana seating and open-air sunset bar",
+      "High-speed regenerative Mitsubishi/Schindler passenger elevators"
+    ],
+    faqs: [
+      {
+        q: "What amenities are located on the Level 34 rooftop?",
+        a: "Level 34 hosts the Sky Lounge, Stargazing Telescope Deck, Open-Air Cabanas, Sunset Social Promenade, and Zen Reflection Zones."
+      }
+    ]
+  },
+  {
     slug: "nri-property-investment-baner-pashan-pune",
     targetKeyword: "NRI Property Investment in Baner Pashan Pune",
     h1Title: "GLOBAL NRI REAL ESTATE INVESTMENT DESK — THE LORD'S PUNE",
@@ -115,6 +187,30 @@ export const PROGRAMMATIC_SEO_PAGES: ProgrammaticPageData[] = [
       {
         q: "Can NRIs repatriate rental income and capital gains from The Lord's?",
         a: "Yes, under FEMA guidelines, NRIs can repatriate both rental income and property sale proceeds through designated NRE/NRO accounts with proper tax clearance."
+      }
+    ]
+  },
+  {
+    slug: "capri-global-funded-rera-projects-pune",
+    targetKeyword: "Capri Global Financed RERA Projects in Pune",
+    h1Title: "100% INSTITUTIONALLY FINANCED BY CAPRI GLOBAL CAPITAL LIMITED",
+    metaDescription: "Complete delivery assurance with 100% construction financing by Capri Global Capital Limited (CGCL). MahaRERA P52100078557 verified.",
+    locationArea: "Baner-Pashan Link Road, Pune",
+    configuration: "3 & 4.5 BHK Guaranteed Delivery Homes",
+    carpetArea: "1,554 to 2,005 Sq.Ft",
+    startingPrice: "₹ 2.57 CR* Onwards",
+    proximityKey: "100% Financial Closing • On-Schedule Delivery",
+    rentalYield: "Guaranteed Capital Security",
+    highlights: [
+      "Zero dependency on customer collections for structural speed",
+      "Quarterly audited RERA construction progress reports",
+      "Approved for home loans by SBI, HDFC, ICICI, Axis Bank",
+      "Total transparency and legal due diligence assured"
+    ],
+    faqs: [
+      {
+        q: "How does Capri Global financing protect home buyers?",
+        a: "Institutional funding by Capri Global Capital Limited (CGCL) guarantees that construction materials, labor, and engineering milestones proceed continuously without cash-flow interruptions."
       }
     ]
   }
