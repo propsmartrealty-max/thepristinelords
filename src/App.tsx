@@ -20,6 +20,7 @@ import { EmiCalculator } from './components/EmiCalculator';
 import { FAQSection } from './components/FAQSection';
 import { ProgrammaticSeoHub } from './components/ProgrammaticSeoHub';
 import { CorridorSeoMatrix } from './components/CorridorSeoMatrix';
+import { PuneMarketDominanceSweep } from './components/PuneMarketDominanceSweep';
 import { Footer } from './components/Footer';
 import { BrochureModal } from './components/BrochureModal';
 import { VipVisitModal } from './components/VipVisitModal';
@@ -151,11 +152,14 @@ export function App() {
 
           <FAQSection />
 
-          {/* 🔍 Google Advanced Programmatic SEO Directory Hub */}
+          {/* Google Advanced Programmatic SEO Directory Hub */}
           <ProgrammaticSeoHub />
 
           {/* Strategic SEO Corridor Matrix */}
           <CorridorSeoMatrix />
+
+          {/* 📊 Pune Luxury Real Estate Market Sweep & Infrastructure Intelligence */}
+          <PuneMarketDominanceSweep />
         </main>
 
         {/* Official Footer with Contacts & Policies */}
