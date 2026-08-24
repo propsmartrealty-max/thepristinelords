@@ -20,9 +20,9 @@ export const PROJECT_DETAILS = {
   siteAddress: "BESIDE WAKESHWAR TEMPLE, BANER-PASHAN LINK ROAD, SOMESHWARWADI, PASHAN, PUNE - 411008, MAHARASHTRA",
   corpAddress: "PRISTINE DEVELOPERS CORPORATE OFFICE, PRISTINE SQUARE, SHANKAR SHETH ROAD / ERANDWANE, PUNE - 411004",
   o2Address: "GATE NO 1286, PRISTINE O2 WORLD, UBALE NAGAR, WAGHOLI, PUNE, MAHARASHTRA 412207",
-  officialUrl: "https://www.pristinedeveloper.com/the-lords",
-  googleMapsUrl: "https://www.google.com/maps/place/The+Lords+By+Pristine+Developers/@18.5470937,73.7935628,17z/data=!4m6!3m5!1s0x3bc2bf001df0fc63:0x9d9e40b1f152a83f!8m2!3d18.5470937!4d73.7935628!16s%2Fg%2F11lnnwqhvh",
-  googleMapsEmbedUrl: "https://maps.google.com/maps?q=18.5470937,73.7935628&hl=en&z=16&output=embed",
+  officialUrl: "https://pristinethelords.in",
+  googleMapsUrl: "https://www.google.com/maps/place/The+Lords+By+Pristine+Developers/@18.5470094,73.790899,880m/data=!3m1!1e3!4m10!1m2!2m1!1spristine+the+lords!3m6!1s0x3bc2bf001df0fc63:0x9d9e40b1f152a83f!8m2!3d18.5470937!4d73.7935628!15sChJwcmlzdGluZSB0aGUgbG9yZHOSARRjb25zdHJ1Y3Rpb25fY29tcGFueeABAA!16s%2Fg%2F11lnnwqhvh?entry=ttu",
+  googleMapsEmbedUrl: "https://maps.google.com/maps?q=18.5470937,73.7935628&hl=en&z=17&output=embed",
   coordinates: {
     lat: 18.5470937,
     lng: 73.7935628
