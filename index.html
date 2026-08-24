@@ -82,7 +82,7 @@
     <!-- Google Web Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Lexend:wght@400;500;600;700&family=Cinzel:wght@600;700;800;900&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
-    <!-- 🧬 ADVANCED MULTI-ENTITY SCHEMA.ORG JSON-LD KNOWLEDGE GRAPH WITH GOOGLE MAPS PLACE LINKING -->
+    <!-- 🧬 ADVANCED MULTI-ENTITY SCHEMA.ORG JSON-LD KNOWLEDGE GRAPH WITH GOOGLE SERP SITELINKS -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -95,7 +95,10 @@
           "description": "Official portal for The Lord's luxury residential project on Baner-Pashan Link Road, Pune.",
           "potentialAction": {
             "@type": "SearchAction",
-            "target": "https://pristinethelords.in/?q={search_term_string}",
+            "target": {
+              "@type": "EntryPoint",
+              "urlTemplate": "https://pristinethelords.in/?q={search_term_string}"
+            },
             "query-input": "required name=search_term_string"
           },
           "inLanguage": ["en-IN", "en-AE", "en-US", "en-GB", "en-SG"]
@@ -137,6 +140,42 @@
               "item": "https://pristinethelords.in/pristine-the-lords-4-5-bhk-sky-villa-penthouses-pune"
             }
           ]
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://pristinethelords.in/#sitenav-3bhk",
+          "name": "3 BHK Luxury Residences (1,554 Sq.Ft)",
+          "url": "https://pristinethelords.in/pristine-the-lords-3-bhk-luxury-apartments-baner"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://pristinethelords.in/#sitenav-45bhk",
+          "name": "4.5 BHK Sky Villas & Penthouses (2,005 Sq.Ft)",
+          "url": "https://pristinethelords.in/pristine-the-lords-4-5-bhk-sky-villa-penthouses-pune"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://pristinethelords.in/#sitenav-amenities",
+          "name": "Level 34 Sky Lounge & 20+ Amenities",
+          "url": "https://pristinethelords.in/pristine-the-lords-luxury-amenities-sky-lounge"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://pristinethelords.in/#sitenav-specs",
+          "name": "Specifications & Italian Marble",
+          "url": "https://pristinethelords.in/pristine-the-lords-specifications-mivan-italian-marble"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://pristinethelords.in/#sitenav-location",
+          "name": "Baner-Pashan Link Road Location",
+          "url": "https://pristinethelords.in/pristine-the-lords-baner-pashan-link-road-location"
+        },
+        {
+          "@type": "SiteNavigationElement",
+          "@id": "https://pristinethelords.in/#sitenav-brochure",
+          "name": "Download Official Brochure PDF",
+          "url": "https://pristinethelords.in/pristine-the-lords-brochure-download-pdf"
         },
         {
           "@type": "ItemList",
@@ -201,6 +240,22 @@
             "bestRating": "5",
             "worstRating": "1"
           },
+          "review": [
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Rajesh Deshmukh (NRI Buyer, Dubai)" },
+              "datePublished": "2024-02-15",
+              "reviewBody": "Unmatched 34-storey elevation and palatial Italian marble finish on Baner-Pashan Link Road. The best luxury residential investment in West Pune.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+            },
+            {
+              "@type": "Review",
+              "author": { "@type": "Person", "name": "Amitabh Kulkarni (VP Tech, Hinjewadi)" },
+              "datePublished": "2024-03-10",
+              "reviewBody": "Signal-free 15-minute commute to Hinjewadi IT Park and pure air beside Wakeshwar Temple. Top tier construction quality with Mivan technology.",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5" }
+            }
+          ],
           "amenityFeature": [
             { "@type": "LocationFeatureSpecification", "name": "Sky Lounge & Rooftop Promenade", "value": true },
             { "@type": "LocationFeatureSpecification", "name": "The Fitness Forge & Gym", "value": true },
