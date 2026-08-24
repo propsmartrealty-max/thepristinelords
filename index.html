@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     
     <!-- Primary Title & Meta -->
@@ -20,6 +21,7 @@
     <meta name="theme-color" content="#ED6336" />
     <meta name="mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Pristine Lords" />
     <link rel="canonical" href="https://www.pristinedeveloper.com/the-lords" />
 
     <!-- 📍 GEOGRAPHIC & LOCAL SEO METATAGS -->
@@ -67,7 +69,7 @@
     <!-- Google Web Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Lexend:wght@400;500;600;700&family=Cinzel:wght@600;700;800;900&family=EB+Garamond:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
-    <!-- 🧬 ADVANCED MULTI-ENTITY SCHEMA.ORG JSON-LD KNOWLEDGE GRAPH -->
+    <!-- 🧬 ADVANCED MULTI-ENTITY SCHEMA.ORG JSON-LD KNOWLEDGE GRAPH WITH GOOGLE SHOPPING & SPEAKABLE -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -84,6 +86,16 @@
             "query-input": "required name=search_term_string"
           },
           "inLanguage": "en-IN"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://www.pristinedeveloper.com/the-lords#webpage",
+          "url": "https://www.pristinedeveloper.com/the-lords",
+          "name": "The Lord's by Pristine Developers | 3 & 4.5 BHK Luxury Residences",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": ["h1", ".speakable-narrative", "#specifications"]
+          }
         },
         {
           "@type": "BreadcrumbList",
@@ -144,29 +156,54 @@
           ]
         },
         {
-          "@type": "ItemList",
-          "@id": "https://www.pristinedeveloper.com/the-lords#inventory",
-          "name": "The Lord's Residence Configurations",
-          "itemListElement": [
-            {
-              "@type": "Offer",
-              "name": "3 BHK Luxury Residence",
-              "price": "25700000",
-              "priceCurrency": "INR",
-              "description": "1,554 Sq.Ft RERA Carpet 3 BHK Luxury Suite with Italian Marble and Balcony",
-              "availability": "https://schema.org/InStock",
-              "validFrom": "2024-01-01"
-            },
-            {
-              "@type": "Offer",
-              "name": "4.5 BHK Palatial Estate Residence",
-              "price": "35500000",
-              "priceCurrency": "INR",
-              "description": "2,005 Sq.Ft RERA Carpet 4.5 BHK Luxury Suite with Dual Viewing Decks and Study",
-              "availability": "https://schema.org/InStock",
-              "validFrom": "2024-01-01"
+          "@type": "Product",
+          "@id": "https://www.pristinedeveloper.com/the-lords#product-3bhk",
+          "name": "The Lord's 3 BHK Luxury Residence",
+          "image": "https://static.wixstatic.com/media/53bf92_cdbaa9ee5fbd4fed9806a57c489a8aec~mv2.jpg",
+          "description": "Sanctioned 1,554 Sq.Ft RERA Carpet 3 BHK Luxury Suite with Italian Marble Flooring and SGU Solar Glass Balconies.",
+          "sku": "PRISTINE-LORDS-3BHK",
+          "brand": {
+            "@type": "Brand",
+            "name": "Pristine Developers"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.pristinedeveloper.com/the-lords",
+            "priceCurrency": "INR",
+            "price": "25700000",
+            "priceValidUntil": "2026-12-31",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Pristine Developers"
             }
-          ]
+          }
+        },
+        {
+          "@type": "Product",
+          "@id": "https://www.pristinedeveloper.com/the-lords#product-45bhk",
+          "name": "The Lord's 4.5 BHK Palatial Estate Residence",
+          "image": "https://static.wixstatic.com/media/53bf92_022879ec03124281a554ebb14133da5e~mv2.jpg",
+          "description": "Sanctioned 2,005 Sq.Ft RERA Carpet 4.5 BHK Palatial Residence with Dual Viewing Decks, Multipurpose Room, and Imported Marble.",
+          "sku": "PRISTINE-LORDS-4.5BHK",
+          "brand": {
+            "@type": "Brand",
+            "name": "Pristine Developers"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://www.pristinedeveloper.com/the-lords",
+            "priceCurrency": "INR",
+            "price": "35500000",
+            "priceValidUntil": "2026-12-31",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock",
+            "seller": {
+              "@type": "Organization",
+              "name": "Pristine Developers"
+            }
+          }
         },
         {
           "@type": "Organization",

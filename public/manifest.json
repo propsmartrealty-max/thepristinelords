@@ -1,0 +1,25 @@
+{
+  "name": "The Lord's by Pristine Developers",
+  "short_name": "Pristine Lords",
+  "description": "3 & 4.5 BHK Ultra Luxury Residences in Pashan, Pune by Pristine Developers. MahaRERA P52100078557.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ED6336",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["real estate", "business", "lifestyle"]
+}
