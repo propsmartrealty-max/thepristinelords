@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { X, Calendar, ShieldCheck, CheckCircle2, User, Smartphone, AlertCircle } from 'lucide-react';
+import { X, Calendar, ShieldCheck, CheckCircle2, User, Smartphone, AlertCircle, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { PROJECT_DETAILS } from '../data/projectData';
+import { submitLeadNotification } from '../services/leadService';
 
 interface VipVisitModalProps {
   isOpen: boolean;
@@ -43,22 +44,28 @@ export const VipVisitModal: React.FC<VipVisitModalProps> = ({ isOpen, onClose })
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      setIsSubmitted(true);
+    // Send lead notification to propsmartrealty@gmail.com
+    await submitLeadNotification({
+      name: formData.name.trim(),
+      phone: formData.phone.trim(),
+      bhk: formData.bhk,
+      sourceForm: 'VIP Site Tour Booking'
+    });
 
-      confetti({
-        particleCount: 100,
-        spread: 80,
-        origin: { y: 0.5 },
-        colors: ['#ED6336', '#38bdf8', '#c59b27']
-      });
-    }, 600);
+    setLoading(false);
+    setIsSubmitted(true);
+
+    confetti({
+      particleCount: 100,
+      spread: 80,
+      origin: { y: 0.5 },
+      colors: ['#ED6336', '#38bdf8', '#c59b27']
+    });
   };
 
   const handleReset = () => {
@@ -90,49 +97,63 @@ export const VipVisitModal: React.FC<VipVisitModalProps> = ({ isOpen, onClose })
             </div>
 
             <div>
-              <span className="text-xs uppercase tracking-widest text-pristine-orange font-bold font-google">ENQUIRY REGISTERED</span>
+              <span className="text-xs uppercase tracking-widest text-pristine-orange font-bold font-google">ENQUIRY DELIVERED</span>
               <h3 id="vip-modal-title" className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
                 THANK YOU, {formData.name}
               </h3>
-              <p className="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed font-light">
-                OUR SENIOR SALES RELATIONSHIP MANAGER WILL CALL YOU WITHIN 15 MINUTES REGARDING <strong>{formData.bhk}</strong> AT THE LORD'S BY PRISTINE DEVELOPER.
+              <p className="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed font-light font-google">
+                YOUR INQUIRY FOR <strong>{formData.bhk}</strong> HAS BEEN DELIVERED TO THE OFFICIAL SALES DESK. A SENIOR RELATIONSHIP MANAGER WILL CONTACT YOU SHORTLY.
               </p>
             </div>
 
-            <div className="space-y-3 pt-2 font-google">
+            <div className="p-4 rounded-2xl bg-orange-50/70 border border-orange-200/60 text-xs text-gray-800 space-y-1 font-google">
+              <div className="flex items-center justify-center space-x-1.5 font-bold text-pristine-orange">
+                <ShieldCheck className="w-4 h-4" />
+                <span>OFFICIAL MAHARERA: {PROJECT_DETAILS.reraNumber}</span>
+              </div>
+              <p className="text-[11px] text-gray-600 font-light">
+                FINANCED BY CAPRI GLOBAL CAPITAL LIMITED (CGCL)
+              </p>
+            </div>
+
+            <div className="pt-2 flex gap-3 font-google">
               <a
-                href={`https://wa.me/${PROJECT_DETAILS.whatsapp}?text=${encodeURIComponent(`Hi Pristine Sales Team, I would like to schedule a private visit for ${formData.bhk} at The Lord's Pashan. My name is ${formData.name}.`)}`}
+                href={`https://wa.me/${PROJECT_DETAILS.whatsapp}?text=${encodeURIComponent(`Hi Pristine Sales Team, I just submitted an inquiry for ${formData.bhk} at The Lord's Pashan. My name is ${formData.name}.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pristine-orange w-full py-3.5 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-pristine-orange font-bold"
+                className="flex-1 btn-pristine-orange py-3.5 rounded-2xl text-xs tracking-wider font-bold shadow-pristine-orange flex items-center justify-center space-x-2"
               >
-                <span>CONNECT ON WHATSAPP</span>
+                <span>OPEN ON WHATSAPP</span>
               </a>
+
               <button
                 onClick={handleReset}
-                className="w-full py-2 text-xs text-gray-500 hover:text-gray-900 font-bold"
+                className="px-6 py-3.5 rounded-2xl border border-gray-300 text-gray-700 hover:text-gray-900 text-xs font-bold"
               >
-                CLOSE WINDOW
+                CLOSE
               </button>
             </div>
           </div>
         ) : (
-          <div className="p-6 sm:p-8">
-            <div className="text-center mb-6">
-              <span className="text-xs uppercase tracking-widest text-pristine-orange font-bold block mb-1 font-google">
-                PASHAN, PUNE
-              </span>
+          <div className="p-6 sm:p-8 space-y-6">
+            <div className="text-center space-y-1 pt-2">
+              <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full colorful-chip text-pristine-orange text-[10px] font-bold tracking-widest font-google">
+                <Calendar className="w-3.5 h-3.5" />
+                <span>OFFICIAL VIP ENQUIRY</span>
+              </div>
               <h3 id="vip-modal-title" className="font-serif text-2xl sm:text-3xl font-bold text-gray-900">
-                ENQUIRE NOW
+                SCHEDULE VIP SITE TOUR
               </h3>
-              <p className="text-gray-600 text-xs mt-1 font-light">
-                SCHEDULE A PRIVATE VISIT AND EXPLORE 3 & 4.5 BHK LUXURY RESIDENCES.
+              <p className="text-xs text-gray-500 font-light font-google">
+                {PROJECT_DETAILS.slogan} • BANER-PASHAN LINK ROAD
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-3.5 font-google" noValidate>
+            <form onSubmit={handleSubmit} className="space-y-4 font-google" noValidate>
               <div>
-                <label className="text-xs text-gray-700 font-bold block mb-1">FULL NAME *</label>
+                <label className="text-xs text-gray-700 font-bold block mb-1">
+                  FULL NAME *
+                </label>
                 <div className="relative">
                   <User className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
@@ -145,9 +166,9 @@ export const VipVisitModal: React.FC<VipVisitModalProps> = ({ isOpen, onClose })
                       setFormData({ ...formData, name: e.target.value });
                       if (errors.name) setErrors({ ...errors, name: undefined });
                     }}
-                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border ${
+                    className={`w-full pl-10 pr-4 py-3 rounded-2xl bg-white border ${
                       errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-pristine-orange'
-                    } text-gray-900 placeholder-gray-400 text-xs sm:text-sm focus:outline-none uppercase shadow-sm`}
+                    } text-gray-900 placeholder-gray-400 text-xs focus:outline-none uppercase shadow-sm`}
                   />
                 </div>
                 {errors.name && (
@@ -159,7 +180,9 @@ export const VipVisitModal: React.FC<VipVisitModalProps> = ({ isOpen, onClose })
               </div>
 
               <div>
-                <label className="text-xs text-gray-700 font-bold block mb-1">MOBILE NUMBER *</label>
+                <label className="text-xs text-gray-700 font-bold block mb-1">
+                  MOBILE NUMBER *
+                </label>
                 <div className="relative">
                   <Smartphone className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
@@ -173,9 +196,9 @@ export const VipVisitModal: React.FC<VipVisitModalProps> = ({ isOpen, onClose })
                       setFormData({ ...formData, phone: e.target.value });
                       if (errors.phone) setErrors({ ...errors, phone: undefined });
                     }}
-                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border ${
+                    className={`w-full pl-10 pr-4 py-3 rounded-2xl bg-white border ${
                       errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-pristine-orange'
-                    } text-gray-900 placeholder-gray-400 text-xs sm:text-sm focus:outline-none shadow-sm`}
+                    } text-gray-900 placeholder-gray-400 text-xs focus:outline-none shadow-sm`}
                   />
                 </div>
                 {errors.phone && (
@@ -187,14 +210,16 @@ export const VipVisitModal: React.FC<VipVisitModalProps> = ({ isOpen, onClose })
               </div>
 
               <div>
-                <label className="text-xs text-gray-700 font-bold block mb-1">CONFIGURATION</label>
+                <label className="text-xs text-gray-700 font-bold block mb-1">
+                  INTERESTED CONFIGURATION
+                </label>
                 <select
                   value={formData.bhk}
                   onChange={(e) => setFormData({ ...formData, bhk: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-gray-300 text-gray-900 text-xs sm:text-sm focus:outline-none focus:border-pristine-orange uppercase shadow-sm"
+                  className="w-full px-4 py-3 rounded-2xl bg-white border border-gray-300 text-gray-900 text-xs focus:outline-none focus:border-pristine-orange uppercase font-google shadow-sm"
                 >
-                  <option value="3 BHK">3 BHK LUXURY RESIDENCE (1,554 SQ.FT)</option>
-                  <option value="4.5 BHK">4.5 BHK LUXURY ESTATE RESIDENCE (2,005 SQ.FT)</option>
+                  <option value="3 BHK">3 BHK LUXURY RESIDENCE (1,554 SQ.FT CARPET)</option>
+                  <option value="4.5 BHK">4.5 BHK PALATIAL ESTATE RESIDENCE (2,005 SQ.FT CARPET)</option>
                 </select>
               </div>
 
@@ -202,11 +227,15 @@ export const VipVisitModal: React.FC<VipVisitModalProps> = ({ isOpen, onClose })
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn-pristine-orange w-full py-3.5 rounded-2xl text-xs uppercase tracking-wider shadow-pristine-orange font-bold flex items-center justify-center space-x-2"
+                  className="btn-pristine-orange w-full py-4 rounded-2xl text-xs uppercase font-bold tracking-widest flex items-center justify-center space-x-2 shadow-pristine-orange"
                 >
                   <Calendar className="w-4 h-4" />
-                  <span>{loading ? "SUBMITTING..." : "CONFIRM PRIVATE VISIT"}</span>
+                  <span>{loading ? "SUBMITTING ENQUIRY..." : "CONFIRM VIP SITE TOUR ENQUIRY"}</span>
                 </button>
+              </div>
+
+              <div className="text-[10px] text-gray-500 text-center font-google pt-1">
+                🔒 100% PRIVATE • ZERO SPAM ASSURANCE • MAHARERA: {PROJECT_DETAILS.reraNumber}
               </div>
             </form>
           </div>

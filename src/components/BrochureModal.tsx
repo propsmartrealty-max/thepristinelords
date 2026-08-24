@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { X, Download, ShieldCheck, CheckCircle2, FileText, Smartphone, Mail, User, AlertCircle } from 'lucide-react';
+import { X, Download, ShieldCheck, CheckCircle2, FileText, Smartphone, Mail, User, AlertCircle, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { PROJECT_DETAILS } from '../data/projectData';
+import { submitLeadNotification } from '../services/leadService';
 
 interface BrochureModalProps {
   isOpen: boolean;
@@ -53,23 +54,30 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose })
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      setIsSubmitted(true);
+    // Send lead notification to propsmartrealty@gmail.com
+    await submitLeadNotification({
+      name: formData.name.trim(),
+      phone: formData.phone.trim(),
+      email: formData.email.trim(),
+      bhk: formData.bhk,
+      sourceForm: 'Brochure Download'
+    });
 
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#ED6336', '#38bdf8', '#c59b27']
-      });
-    }, 600);
+    setLoading(false);
+    setIsSubmitted(true);
+
+    confetti({
+      particleCount: 80,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#ED6336', '#38bdf8', '#c59b27']
+    });
   };
 
   const handleReset = () => {
@@ -101,65 +109,63 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose })
             </div>
 
             <div>
-              <span className="text-xs uppercase tracking-widest text-pristine-orange font-bold font-google">REQUEST CONFIRMED</span>
+              <span className="text-xs uppercase tracking-widest text-pristine-orange font-bold font-google">BROCHURE DELIVERED</span>
               <h3 id="brochure-modal-title" className="font-serif text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
-                OFFICIAL BROCHURE UNLOCKED
+                THANK YOU, {formData.name}
               </h3>
-              <p className="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed font-light">
-                THANK YOU, <strong className="text-gray-900">{formData.name}</strong>. THE OFFICIAL MASTER BROCHURE AND FLOOR PLAN DOSSIER FOR <strong>{formData.bhk}</strong> HAVE BEEN SENT TO YOUR WHATSAPP AND EMAIL.
+              <p className="text-gray-600 text-xs sm:text-sm mt-2 leading-relaxed font-light font-google">
+                THE SANCTIONED DIGITAL BROCHURE & BLUEPRINTS FOR <strong>{formData.bhk}</strong> HAVE BEEN DISPATCHED TO <strong>{formData.email}</strong> AND YOUR WHATSAPP.
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-gray-50 border border-gray-200 text-left space-y-2 text-xs font-google">
-              <div className="flex items-center justify-between text-gray-600">
-                <span>WHATSAPP:</span>
-                <span className="text-gray-900 font-mono font-bold">{formData.phone}</span>
+            <div className="p-4 rounded-2xl bg-orange-50/70 border border-orange-200/60 text-xs text-gray-800 space-y-1 font-google">
+              <div className="flex items-center justify-center space-x-1.5 font-bold text-pristine-orange">
+                <ShieldCheck className="w-4 h-4" />
+                <span>OFFICIAL MAHARERA: {PROJECT_DETAILS.reraNumber}</span>
               </div>
-              <div className="flex items-center justify-between text-gray-600">
-                <span>EMAIL:</span>
-                <span className="text-gray-900 font-mono font-bold">{formData.email}</span>
-              </div>
-              <div className="flex items-center justify-between text-gray-600">
-                <span>MAHA RERA:</span>
-                <span className="text-pristine-orange font-mono font-bold">{PROJECT_DETAILS.reraNumber}</span>
-              </div>
+              <p className="text-[11px] text-gray-600 font-light">
+                FINANCED BY CAPRI GLOBAL CAPITAL LIMITED (CGCL)
+              </p>
             </div>
 
-            <div className="space-y-3 pt-2 font-google">
+            <div className="pt-2 flex gap-3 font-google">
               <a
                 href={`https://wa.me/${PROJECT_DETAILS.whatsapp}?text=${encodeURIComponent(`Hi Pristine Sales Team, I just requested the brochure for ${formData.bhk} at The Lord's Pashan. My name is ${formData.name}.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-pristine-orange w-full py-3.5 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center space-x-2 shadow-pristine-orange font-bold"
+                className="flex-1 btn-pristine-orange py-3.5 rounded-2xl text-xs tracking-wider font-bold shadow-pristine-orange flex items-center justify-center space-x-2"
               >
                 <span>OPEN IN WHATSAPP</span>
               </a>
+
               <button
                 onClick={handleReset}
-                className="w-full py-2 text-xs text-gray-500 hover:text-gray-900 font-bold"
+                className="px-6 py-3.5 rounded-2xl border border-gray-300 text-gray-700 hover:text-gray-900 text-xs font-bold"
               >
-                CLOSE WINDOW
+                CLOSE
               </button>
             </div>
           </div>
         ) : (
-          <div className="p-6 sm:p-8">
-            <div className="text-center mb-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-gray-100 border border-gray-200 text-pristine-orange text-[11px] font-bold tracking-widest mb-2 font-google">
+          <div className="p-6 sm:p-8 space-y-6">
+            <div className="text-center space-y-1 pt-2">
+              <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full colorful-chip text-pristine-orange text-[10px] font-bold tracking-widest font-google">
                 <FileText className="w-3.5 h-3.5" />
-                <span>THE LORD'S BY PRISTINE</span>
+                <span>OFFICIAL DIGITAL DOSSIER</span>
               </div>
               <h3 id="brochure-modal-title" className="font-serif text-2xl sm:text-3xl font-bold text-gray-900">
                 DOWNLOAD MASTER BROCHURE
               </h3>
-              <p className="text-gray-600 text-xs mt-1 font-light">
-                RECEIVE SANCTIONED ARCHITECTURAL PLANS, 20+ AMENITIES DOSSIER, AND SPECIFICATIONS.
+              <p className="text-xs text-gray-500 font-light font-google">
+                FLOOR PLANS • 10-TIER SPECIFICATIONS • 20+ AMENITIES
               </p>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-3.5 font-google" noValidate>
               <div>
-                <label className="text-xs text-gray-700 font-bold block mb-1">FULL NAME *</label>
+                <label className="text-xs text-gray-700 font-bold block mb-1">
+                  FULL NAME *
+                </label>
                 <div className="relative">
                   <User className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
@@ -172,9 +178,9 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose })
                       setFormData({ ...formData, name: e.target.value });
                       if (errors.name) setErrors({ ...errors, name: undefined });
                     }}
-                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border ${
+                    className={`w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-2xl bg-white border ${
                       errors.name ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-pristine-orange'
-                    } text-gray-900 placeholder-gray-400 text-xs sm:text-sm focus:outline-none uppercase shadow-sm`}
+                    } text-gray-900 placeholder-gray-400 text-xs focus:outline-none uppercase shadow-sm`}
                   />
                 </div>
                 {errors.name && (
@@ -186,7 +192,9 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose })
               </div>
 
               <div>
-                <label className="text-xs text-gray-700 font-bold block mb-1">MOBILE NUMBER *</label>
+                <label className="text-xs text-gray-700 font-bold block mb-1">
+                  MOBILE NUMBER *
+                </label>
                 <div className="relative">
                   <Smartphone className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
@@ -200,9 +208,9 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose })
                       setFormData({ ...formData, phone: e.target.value });
                       if (errors.phone) setErrors({ ...errors, phone: undefined });
                     }}
-                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border ${
+                    className={`w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-2xl bg-white border ${
                       errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-pristine-orange'
-                    } text-gray-900 placeholder-gray-400 text-xs sm:text-sm focus:outline-none shadow-sm`}
+                    } text-gray-900 placeholder-gray-400 text-xs focus:outline-none shadow-sm`}
                   />
                 </div>
                 {errors.phone && (
@@ -214,7 +222,9 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose })
               </div>
 
               <div>
-                <label className="text-xs text-gray-700 font-bold block mb-1">EMAIL ADDRESS *</label>
+                <label className="text-xs text-gray-700 font-bold block mb-1">
+                  EMAIL ADDRESS *
+                </label>
                 <div className="relative">
                   <Mail className="w-4 h-4 text-gray-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
                   <input
@@ -222,15 +232,15 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose })
                     required
                     inputMode="email"
                     autoComplete="email"
-                    placeholder="NAME@EMAIL.COM"
+                    placeholder="ENTER YOUR EMAIL FOR INSTANT PDF"
                     value={formData.email}
                     onChange={(e) => {
                       setFormData({ ...formData, email: e.target.value });
                       if (errors.email) setErrors({ ...errors, email: undefined });
                     }}
-                    className={`w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border ${
+                    className={`w-full pl-10 pr-4 py-2.5 sm:py-3 rounded-2xl bg-white border ${
                       errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-pristine-orange'
-                    } text-gray-900 placeholder-gray-400 text-xs sm:text-sm focus:outline-none uppercase shadow-sm`}
+                    } text-gray-900 placeholder-gray-400 text-xs focus:outline-none uppercase shadow-sm`}
                   />
                 </div>
                 {errors.email && (
@@ -242,14 +252,16 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose })
               </div>
 
               <div>
-                <label className="text-xs text-gray-700 font-bold block mb-1">PREFERRED CONFIGURATION</label>
+                <label className="text-xs text-gray-700 font-bold block mb-1">
+                  CONFIGURATION
+                </label>
                 <select
                   value={formData.bhk}
                   onChange={(e) => setFormData({ ...formData, bhk: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-white border border-gray-300 text-gray-900 text-xs sm:text-sm focus:outline-none focus:border-pristine-orange uppercase shadow-sm"
+                  className="w-full px-4 py-2.5 sm:py-3 rounded-2xl bg-white border border-gray-300 text-gray-900 text-xs focus:outline-none focus:border-pristine-orange uppercase font-google shadow-sm"
                 >
-                  <option value="3 BHK">3 BHK LUXURY RESIDENCE (1,554 SQ.FT)</option>
-                  <option value="4.5 BHK">4.5 BHK LUXURY ESTATE RESIDENCE (2,005 SQ.FT)</option>
+                  <option value="3 BHK">3 BHK LUXURY RESIDENCE (1,554 SQ.FT CARPET)</option>
+                  <option value="4.5 BHK">4.5 BHK PALATIAL ESTATE RESIDENCE (2,005 SQ.FT CARPET)</option>
                 </select>
               </div>
 
@@ -257,16 +269,15 @@ export const BrochureModal: React.FC<BrochureModalProps> = ({ isOpen, onClose })
                 <button
                   type="submit"
                   disabled={loading}
-                  className="btn-pristine-orange w-full py-3.5 rounded-2xl text-xs uppercase tracking-wider shadow-pristine-orange font-bold flex items-center justify-center space-x-2"
+                  className="btn-pristine-orange w-full py-3.5 sm:py-4 rounded-2xl text-xs uppercase font-bold tracking-widest flex items-center justify-center space-x-2 shadow-pristine-orange"
                 >
                   <Download className="w-4 h-4" />
-                  <span>{loading ? "GENERATING SECURE PDF..." : "DOWNLOAD MASTER BROCHURE"}</span>
+                  <span>{loading ? "PREPARING DOSSIER..." : "GET INSTANT BROCHURE ON EMAIL & WHATSAPP"}</span>
                 </button>
               </div>
 
-              <div className="flex items-center justify-center space-x-2 text-[10px] text-gray-500 pt-1">
-                <ShieldCheck className="w-3.5 h-3.5 text-pristine-orange" />
-                <span>MAHA RERA APPROVED: {PROJECT_DETAILS.reraNumber}</span>
+              <div className="text-[10px] text-gray-500 text-center font-google pt-1">
+                🔒 100% PRIVATE • ZERO SPAM ASSURANCE • MAHARERA: {PROJECT_DETAILS.reraNumber}
               </div>
             </form>
           </div>

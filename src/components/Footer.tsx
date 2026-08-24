@@ -3,6 +3,7 @@ import { ShieldCheck, MapPin, Phone, Mail, ArrowUp, Building, Leaf, Download, Fi
 import confetti from 'canvas-confetti';
 import { PROJECT_DETAILS } from '../data/projectData';
 import { AmbientWaterBlobs } from './AmbientWaterBlobs';
+import { submitLeadNotification } from '../services/leadService';
 
 interface FooterProps {
   onOpenBrochure?: () => void;
@@ -50,21 +51,28 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleBrochureSubmit = (e: React.FormEvent) => {
+  const handleBrochureSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      setIsSubmitted(true);
-      confetti({
-        particleCount: 70,
-        spread: 60,
-        origin: { y: 0.85 },
-        colors: ['#ED6336', '#38bdf8', '#c59b27']
-      });
-    }, 600);
+    // Send lead notification to propsmartrealty@gmail.com
+    await submitLeadNotification({
+      name: formData.name.trim(),
+      phone: formData.phone.trim(),
+      email: formData.email.trim(),
+      bhk: formData.bhk,
+      sourceForm: 'Footer Inquiry'
+    });
+
+    setLoading(false);
+    setIsSubmitted(true);
+    confetti({
+      particleCount: 70,
+      spread: 60,
+      origin: { y: 0.85 },
+      colors: ['#ED6336', '#38bdf8', '#c59b27']
+    });
   };
 
   return (
@@ -86,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
                 DOWNLOAD MASTER BROCHURE
               </h2>
 
-              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto lg:mx-0 font-light">
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto lg:mx-0 font-light font-google">
                 GET INSTANT ACCESS TO SANCTIONED ARCHITECTURAL BLUEPRINTS, COMPREHENSIVE 10-TIER SPECIFICATIONS, 20+ LIFESTYLE AMENITIES CATALOG, AND FLOOR PLANS FOR <strong>THE LORD'S BY PRISTINE DEVELOPER</strong>.
               </p>
 
@@ -116,8 +124,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
                   <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900">
                     BROCHURE SENT SUCCESSFULLY!
                   </h3>
-                  <p className="text-xs text-gray-600 font-light">
-                    THANK YOU, <strong className="text-gray-900">{formData.name}</strong>. THE OFFICIAL BROCHURE FOR <strong>{formData.bhk}</strong> HAS BEEN SHARED TO YOUR WHATSAPP AND EMAIL.
+                  <p className="text-xs text-gray-600 font-light font-google">
+                    THANK YOU, <strong className="text-gray-900">{formData.name}</strong>. THE OFFICIAL BROCHURE FOR <strong>{formData.bhk}</strong> HAS BEEN DISPATCHED TO YOUR WHATSAPP AND EMAIL.
                   </p>
                   <a
                     href={`https://wa.me/${PROJECT_DETAILS.whatsapp}?text=${encodeURIComponent(`Hi Pristine Sales Team, I just downloaded the brochure for ${formData.bhk} at The Lord's Pashan. My name is ${formData.name}.`)}`}
@@ -250,7 +258,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
               />
             </div>
 
-            <p className="text-xs text-gray-600 leading-relaxed font-light">
+            <p className="text-xs text-gray-600 leading-relaxed font-light font-google">
               {PROJECT_DETAILS.slogan}. 3 & 4.5 BHK LUXURY RESIDENCES IN PASHAN, PUNE. TIMELESS ARCHITECTURE WITH MODERN COMFORTS.
             </p>
 
@@ -348,7 +356,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
               <div className="flex flex-col space-y-1 pt-1 text-[11px] text-gray-500 font-google">
                 <div className="flex items-center space-x-1.5">
                   <Mail className="w-3.5 h-3.5 text-pristine-orange" />
-                  <a href={`mailto:${PROJECT_DETAILS.email}`} className="hover:text-gray-900">{PROJECT_DETAILS.email}</a>
+                  <a href={`mailto:propsmartrealty@gmail.com`} className="hover:text-gray-900">propsmartrealty@gmail.com</a>
                 </div>
                 <div className="flex items-center space-x-1.5">
                   <Mail className="w-3.5 h-3.5 text-pristine-orange" />
