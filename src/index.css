@@ -1,0 +1,193 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Product Sans', 'Google Sans', 'Outfit', 'Poppins', sans-serif;
+  }
+  
+  body {
+    background-color: #ffffff;
+    color: #1a1c23;
+    overflow-x: hidden;
+  }
+}
+
+/* 🌈 ULTRA COLORFUL GRADIENT & IRIDESCENT BORDER SYSTEM */
+@keyframes colorfulBorderSweep {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes waterRipple {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.8;
+  }
+  100% {
+    width: 320px;
+    height: 320px;
+    opacity: 0;
+  }
+}
+
+.animate-water-ripple {
+  animation: waterRipple 1s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
+}
+
+/* 🌟 COLORFUL GLASS LUXURY CARDS */
+.glass-card-luxe {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.85) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  position: relative;
+  border-radius: 1.75rem;
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 16px 36px -10px rgba(15, 23, 42, 0.08), inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
+}
+
+.glass-card-luxe::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #ED6336 0%, #f43f5e 25%, #38bdf8 50%, #c59b27 75%, #ED6336 100%);
+  background-size: 300% 300%;
+  animation: colorfulBorderSweep 8s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 🌟 COLORFUL NAVBAR FLOATING PILL */
+.glass-navbar-pill {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.88) 100%);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  position: relative;
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: 0 20px 45px -10px rgba(237, 99, 54, 0.15), 0 10px 25px -5px rgba(56, 189, 248, 0.12);
+}
+
+.glass-navbar-pill::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(90deg, #ED6336 0%, #f43f5e 20%, #8b5cf6 40%, #38bdf8 60%, #10b981 80%, #c59b27 100%);
+  background-size: 300% 300%;
+  animation: colorfulBorderSweep 6s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 🌟 COLORFUL SUBTLE PILLS & CHIPS */
+.colorful-chip {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.88) 100%);
+  position: relative;
+  border-radius: 9999px;
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+}
+
+.colorful-chip::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #ED6336, #38bdf8, #c59b27, #f43f5e);
+  background-size: 200% 200%;
+  animation: colorfulBorderSweep 5s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Pristine Button Styles with Fluid Shimmer */
+.btn-pristine-orange {
+  background: linear-gradient(135deg, #ED6336 0%, #f43f5e 50%, #ED6336 100%);
+  background-size: 200% 200%;
+  color: #ffffff;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btn-pristine-orange:hover {
+  background-position: 100% 0%;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(237, 99, 54, 0.4);
+}
+
+.btn-pristine-outline {
+  background: rgba(255, 255, 255, 0.9);
+  color: #171717;
+  font-weight: 700;
+  position: relative;
+  border: 1.5px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.3s ease;
+}
+
+.btn-pristine-outline::before {
+  content: '';
+  position: absolute;
+  inset: -1.5px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: linear-gradient(135deg, #ED6336, #38bdf8, #c59b27);
+  background-size: 200% 200%;
+  animation: colorfulBorderSweep 6s ease infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.btn-pristine-outline:hover {
+  color: #ED6336;
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(237, 99, 54, 0.2);
+}
+
+/* Custom Water Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ED6336 0%, #f43f5e 40%, #38bdf8 100%);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ED6336 0%, #38bdf8 100%);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

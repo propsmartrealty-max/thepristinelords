@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Googlebot specific directives
+User-agent: Googlebot
+Allow: /
+Allow: /assets/
+Allow: /logo.png
+
+# Sitemaps
+Sitemap: https://www.pristinedeveloper.com/the-lords/sitemap.xml

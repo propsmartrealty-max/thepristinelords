@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Primary Canonical Landing Page -->
+  <url>
+    <loc>https://www.pristinedeveloper.com/the-lords</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://static.wixstatic.com/media/53bf92_cdbaa9ee5fbd4fed9806a57c489a8aec~mv2.jpg</image:loc>
+      <image:title>The Lord's by Pristine Developers 34-Storey Tower Elevation</image:title>
+      <image:caption>3 and 4.5 BHK Luxury Residences in Pashan Pune</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Programmatic Cluster: 3 BHK Luxury Residences Baner Pashan -->
+  <url>
+    <loc>https://www.pristinedeveloper.com/the-lords#3-bhk-luxury-flats-baner-pashan-link-road</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Programmatic Cluster: 4.5 BHK Palatial Estates Pashan -->
+  <url>
+    <loc>https://www.pristinedeveloper.com/the-lords#4-5-bhk-luxury-penthouses-pashan-pune</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Programmatic Cluster: Hinjewadi IT Park Corridor Tech Executive Residences -->
+  <url>
+    <loc>https://www.pristinedeveloper.com/the-lords#luxury-apartments-near-hinjewadi-it-park</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Programmatic Cluster: NRI Property Investment Desk Pune -->
+  <url>
+    <loc>https://www.pristinedeveloper.com/the-lords#nri-property-investment-baner-pashan-pune</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- Master Layout & Sanctioned Floor Plans -->
+  <url>
+    <loc>https://www.pristinedeveloper.com/the-lords#master-layout</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 20+ Lifestyle Amenities & Club Royale -->
+  <url>
+    <loc>https://www.pristinedeveloper.com/the-lords#amenities</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Location Hub & Google Maps Pin -->
+  <url>
+    <loc>https://www.pristinedeveloper.com/the-lords#location</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
