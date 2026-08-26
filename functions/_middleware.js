@@ -18,7 +18,12 @@ const CLEAN_KEYWORD_SLUGS = [
   '/nri-investment-dubai-uae',
   '/nri-investment-usa',
   '/nri-investment-uk',
-  '/nri-investment-singapore'
+  '/nri-investment-singapore',
+  '/baner-pashan-link-road-luxury-real-estate-investment-guide',
+  '/3-bhk-vs-4-bhk-luxury-apartments-pune-roi-comparison',
+  '/nri-fema-real-estate-investment-guide-pune-india',
+  '/maharera-due-diligence-checklist-luxury-apartments-pune',
+  '/mivan-construction-technology-vs-conventional-brickwork'
 ];
 
 export async function onRequest(context) {
@@ -34,21 +39,23 @@ export async function onRequest(context) {
 
   // 2. Handle Clean SEO Keyword Slugs (Rewrite internally to SPA index.html)
   if (CLEAN_KEYWORD_SLUGS.includes(url.pathname)) {
-    const assetUrl = new URL('/index.html', request.url);
-    const response = await env.ASSETS.fetch(assetUrl);
-    const newHeaders = new Headers(response.headers);
+    if (env && env.ASSETS) {
+      const assetUrl = new URL('/index.html', request.url);
+      const response = await env.ASSETS.fetch(assetUrl);
+      const newHeaders = new Headers(response.headers);
 
-    // Set Clean URL Canonical Header
-    newHeaders.set('Link', `<https://pristinethelords.in${url.pathname}>; rel="canonical"`);
-    newHeaders.set('X-Robots-Tag', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
-    newHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
-    newHeaders.set('X-Content-Type-Options', 'nosniff');
-    newHeaders.set('Timing-Allow-Origin', '*');
+      // Set Clean URL Canonical Header
+      newHeaders.set('Link', `<https://pristinethelords.in${url.pathname}>; rel="canonical"`);
+      newHeaders.set('X-Robots-Tag', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
+      newHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+      newHeaders.set('X-Content-Type-Options', 'nosniff');
+      newHeaders.set('Timing-Allow-Origin', '*');
 
-    return new Response(response.body, {
-      status: 200,
-      headers: newHeaders
-    });
+      return new Response(response.body, {
+        status: 200,
+        headers: newHeaders
+      });
+    }
   }
 
   // 3. Execute Standard Request at Edge
