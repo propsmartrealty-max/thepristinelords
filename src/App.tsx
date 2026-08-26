@@ -89,6 +89,8 @@ const CLEAN_PATH_TO_SECTION: Record<string, string> = {
   '/pristine-the-lords-brochure-download-pdf': 'download-brochure'
 };
 
+import { getSeoConfigForPath } from './data/programmaticSeoMetadata';
+
 export function App() {
   const [isBrochureModalOpen, setIsBrochureModalOpen] = useState(false);
   const [isVipTourModalOpen, setIsVipTourModalOpen] = useState(false);
@@ -104,18 +106,54 @@ export function App() {
     setToastMessage(msg);
   };
 
-  // Automatic clean URL section smooth scrolling on initial load
+  // Dynamic Google Standard SEO Metadata Hardening & Navigation Sync
   useEffect(() => {
-    const currentPath = window.location.pathname.toLowerCase().replace(/\/$/, '');
-    const targetSectionId = CLEAN_PATH_TO_SECTION[currentPath];
-    if (targetSectionId) {
-      setTimeout(() => {
+    const updatePageSeo = () => {
+      const pathname = window.location.pathname.toLowerCase().replace(/\/$/, '') || '/';
+      const seoConfig = getSeoConfigForPath(pathname);
+
+      // 1. Update Title
+      if (document.title !== seoConfig.title) {
+        document.title = seoConfig.title;
+      }
+
+      // 2. Update Meta Description
+      const descMeta = document.querySelector('meta[name="description"]');
+      if (descMeta) {
+        descMeta.setAttribute('content', seoConfig.description);
+      }
+
+      // 3. Update Canonical Link
+      let canonicalLink = document.querySelector('link[rel="canonical"]');
+      if (canonicalLink) {
+        canonicalLink.setAttribute('href', seoConfig.canonicalUrl);
+      }
+
+      // 4. Update OpenGraph Tags
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      if (ogTitle) ogTitle.setAttribute('content', seoConfig.title);
+
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      if (ogDesc) ogDesc.setAttribute('content', seoConfig.description);
+
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', seoConfig.canonicalUrl);
+
+      // 5. Scroll to matching section
+      const targetSectionId = CLEAN_PATH_TO_SECTION[pathname];
+      if (targetSectionId) {
         const el = document.getElementById(targetSectionId);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 300);
-    }
+      }
+    };
+
+    updatePageSeo();
+
+    // Listen to popstate (back/forward browser navigation)
+    window.addEventListener('popstate', updatePageSeo);
+    return () => window.removeEventListener('popstate', updatePageSeo);
   }, []);
 
   // Lock background scroll when modal is active
