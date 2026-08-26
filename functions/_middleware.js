@@ -1,4 +1,4 @@
-// ⚡ CLOUDFLARE ENTERPRISE EDGE ROUTING & CLEAN KEYWORD URLS MIDDLEWARE
+// ⚡ CLOUDFLARE ENTERPRISE EDGE ROUTING & ADVANCED PERFORMANCE MIDDLEWARE
 // Production Domain: https://pristinethelords.in
 
 const CLEAN_KEYWORD_SLUGS = [
@@ -62,6 +62,7 @@ export async function onRequest(context) {
   const { request, next, env } = context;
   const url = new URL(request.url);
   const userAgent = (request.headers.get('user-agent') || '').toLowerCase();
+  const cf = request.cf || {};
 
   // 1. Force Canonical Hostname (301 Permanent www -> apex domain)
   if (url.hostname === 'www.pristinethelords.in') {
@@ -69,19 +70,38 @@ export async function onRequest(context) {
     return Response.redirect(url.toString(), 301);
   }
 
-  // 2. Handle Clean SEO Keyword Slugs (Rewrite internally to SPA index.html)
+  // 2. Identify Crawlers and Bots for Fast-Path Delivery
+  const isSearchBot = userAgent.includes('googlebot') || 
+                      userAgent.includes('bingbot') || 
+                      userAgent.includes('applebot') || 
+                      userAgent.includes('duckduckbot') ||
+                      userAgent.includes('baiduspider') ||
+                      userAgent.includes('yandexbot');
+
+  // 3. Handle Clean SEO Keyword Slugs (Rewrite internally to SPA index.html)
   if (CLEAN_KEYWORD_SLUGS.includes(url.pathname)) {
     if (env && env.ASSETS) {
       const assetUrl = new URL('/index.html', request.url);
       const response = await env.ASSETS.fetch(assetUrl);
       const newHeaders = new Headers(response.headers);
 
-      // Set Clean URL Canonical Header
-      newHeaders.set('Link', `<https://pristinethelords.in${url.pathname}>; rel="canonical"`);
+      // Enterprise Canonical & Microdata Headers
+      newHeaders.set('Link', `<https://pristinethelords.in${url.pathname}>; rel="canonical", <https://fonts.googleapis.com>; rel="preconnect", <https://fonts.gstatic.com>; rel="preconnect"; crossorigin, <https://static.wixstatic.com>; rel="preconnect"; crossorigin`);
       newHeaders.set('X-Robots-Tag', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
       newHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
       newHeaders.set('X-Content-Type-Options', 'nosniff');
+      newHeaders.set('X-Frame-Options', 'SAMEORIGIN');
+      newHeaders.set('X-XSS-Protection', '1; mode=block');
+      newHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin');
       newHeaders.set('Timing-Allow-Origin', '*');
+      newHeaders.set('X-Edge-PoP', cf.colo || 'GLOBAL-EDGE');
+      newHeaders.set('X-Edge-Country', cf.country || 'IN');
+      newHeaders.set('X-Edge-City', cf.city || 'Pune');
+      newHeaders.set('Cache-Control', 'public, max-age=0, s-maxage=86400, stale-while-revalidate=604800');
+
+      if (isSearchBot) {
+        newHeaders.set('X-Crawler-Priority', 'High-Speed-Edge-SSR');
+      }
 
       return new Response(response.body, {
         status: 200,
@@ -90,28 +110,24 @@ export async function onRequest(context) {
     }
   }
 
-  // 3. Execute Standard Request at Edge
+  // 4. Execute Standard Request at Edge
   const response = await next();
   const newHeaders = new Headers(response.headers);
 
-  // Crawler Identification
-  const isSearchBot = userAgent.includes('googlebot') || 
-                      userAgent.includes('bingbot') || 
-                      userAgent.includes('applebot') || 
-                      userAgent.includes('duckduckbot');
-
-  if (isSearchBot) {
-    newHeaders.set('X-Robots-Tag', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
-    newHeaders.set('X-Crawler-Priority', 'Enterprise-Fast-Path');
-  }
-
-  // Military-Spec Edge Security & Performance
+  // Security & Performance Headers
   newHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
   newHeaders.set('X-Content-Type-Options', 'nosniff');
   newHeaders.set('X-Frame-Options', 'SAMEORIGIN');
   newHeaders.set('X-XSS-Protection', '1; mode=block');
   newHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin');
   newHeaders.set('Timing-Allow-Origin', '*');
+  newHeaders.set('X-Edge-PoP', cf.colo || 'GLOBAL-EDGE');
+  newHeaders.set('X-Edge-Country', cf.country || 'IN');
+
+  if (isSearchBot) {
+    newHeaders.set('X-Robots-Tag', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
+    newHeaders.set('X-Crawler-Priority', 'High-Speed-Edge-SSR');
+  }
 
   return new Response(response.body, {
     status: response.status,
