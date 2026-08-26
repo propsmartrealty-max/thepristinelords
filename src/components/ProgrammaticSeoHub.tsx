@@ -146,7 +146,12 @@ export const ProgrammaticSeoHub: React.FC = () => {
               {/* Action Trigger */}
               <div className="pt-3 flex flex-col sm:flex-row items-center justify-between gap-3">
                 <a
-                  href="#download-brochure"
+                  href="/pristine-the-lords-baner-brochure-download-pdf"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.history.pushState(null, '', '/pristine-the-lords-baner-brochure-download-pdf');
+                    document.getElementById('download-brochure')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="btn-pristine-outline w-full sm:w-auto px-6 py-3 rounded-2xl text-xs flex items-center justify-center space-x-2 shadow-sm font-bold"
                 >
                   <span>DOWNLOAD SANCTIONED DOSSIER</span>

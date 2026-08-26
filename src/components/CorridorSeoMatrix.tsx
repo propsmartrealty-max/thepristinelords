@@ -85,7 +85,12 @@ export const CorridorSeoMatrix: React.FC = () => {
             {filteredKeywords.map((kw, i) => (
               <a
                 key={i}
-                href="#download-brochure"
+                href="/pristine-the-lords-baner-brochure-download-pdf"
+                onClick={(e) => {
+                  e.preventDefault();
+                  window.history.pushState(null, '', '/pristine-the-lords-baner-brochure-download-pdf');
+                  document.getElementById('download-brochure')?.scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="px-3.5 py-2 rounded-xl bg-white/85 hover:bg-orange-50 border border-gray-200 hover:border-pristine-orange text-xs text-gray-800 hover:text-pristine-orange transition-all duration-200 shadow-sm flex items-center space-x-1.5 group"
               >
                 <span>{kw}</span>

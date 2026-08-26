@@ -8,7 +8,7 @@ interface SpecificationsProps {
   onOpenBrochure?: () => void;
 }
 
-export const SpecificationsMatrix: React.FC<SpecificationsProps> = () => {
+export const SpecificationsMatrix: React.FC<SpecificationsProps> = ({ onOpenBrochure }) => {
   const specs = [
     {
       title: "STRUCTURE & BLOCKWORK",
@@ -143,7 +143,13 @@ export const SpecificationsMatrix: React.FC<SpecificationsProps> = () => {
         {/* Download Specifications Bar */}
         <div className="mt-14 text-center">
           <a
-            href="#download-brochure"
+            href="/pristine-the-lords-baner-brochure-download-pdf"
+            onClick={(e) => {
+              if (onOpenBrochure) {
+                e.preventDefault();
+                onOpenBrochure();
+              }
+            }}
             className="btn-pristine-outline inline-flex items-center space-x-2 px-8 py-3.5 rounded-2xl text-xs tracking-wider shadow-glass-luxury border border-white/90 font-google"
           >
             <Download className="w-4 h-4 text-pristine-orange" />

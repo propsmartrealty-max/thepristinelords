@@ -7,14 +7,14 @@
   <!-- 🏠 1. PRIMARY APEX DOMAIN & LUXURY SHOWCASE -->
   <url>
     <loc>https://pristinethelords.in/</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en-IN" href="https://pristinethelords.in/" />
-    <xhtml:link rel="alternate" hreflang="en-AE" href="https://pristinethelords.in/nri-investment-dubai-uae" />
-    <xhtml:link rel="alternate" hreflang="en-US" href="https://pristinethelords.in/nri-investment-usa" />
-    <xhtml:link rel="alternate" hreflang="en-GB" href="https://pristinethelords.in/nri-investment-uk" />
-    <xhtml:link rel="alternate" hreflang="en-SG" href="https://pristinethelords.in/nri-investment-singapore" />
+    <xhtml:link rel="alternate" hreflang="en-AE" href="https://pristinethelords.in/pristine-the-lords-baner-nri-investment-dubai-uae" />
+    <xhtml:link rel="alternate" hreflang="en-US" href="https://pristinethelords.in/pristine-the-lords-baner-nri-investment-usa" />
+    <xhtml:link rel="alternate" hreflang="en-GB" href="https://pristinethelords.in/pristine-the-lords-baner-nri-investment-uk" />
+    <xhtml:link rel="alternate" hreflang="en-SG" href="https://pristinethelords.in/pristine-the-lords-baner-nri-investment-singapore" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pristinethelords.in/" />
     <image:image>
       <image:loc>https://static.wixstatic.com/media/53bf92_cdbaa9ee5fbd4fed9806a57c489a8aec~mv2.jpg</image:loc>
@@ -37,10 +37,18 @@
     </video:video>
   </url>
 
-  <!-- 📐 2. PRISTINE THE LORDS 3 BHK LUXURY RESIDENCES -->
+  <!-- 🏛️ 2. PRISTINE THE LORDS BANER PROJECT OVERVIEW -->
   <url>
-    <loc>https://pristinethelords.in/pristine-the-lords-3-bhk-luxury-apartments-baner</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-project-overview</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- 📐 3. PRISTINE THE LORDS BANER 3 BHK LUXURY RESIDENCES -->
+  <url>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-3-bhk-luxury-apartments</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -50,10 +58,10 @@
     </image:image>
   </url>
 
-  <!-- 👑 3. PRISTINE THE LORDS 4.5 BHK PALATIAL ESTATE & SKY VILLA -->
+  <!-- 👑 4. PRISTINE THE LORDS BANER 4.5 BHK SKY VILLAS & PENTHOUSES -->
   <url>
-    <loc>https://pristinethelords.in/pristine-the-lords-4-5-bhk-sky-villa-penthouses-pune</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-4-5-bhk-sky-villas</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
     <image:image>
@@ -63,130 +71,146 @@
     </image:image>
   </url>
 
-  <!-- 🗺️ 4. PRISTINE THE LORDS MASTER LAYOUT & BLUEPRINTS -->
+  <!-- 🗺️ 5. PRISTINE THE LORDS BANER MASTER LAYOUT & BLUEPRINTS -->
   <url>
-    <loc>https://pristinethelords.in/pristine-the-lords-master-layout-floor-plans</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-master-layout-floor-plans</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🏊 5. PRISTINE THE LORDS 20+ SIGNATURE AMENITIES -->
+  <!-- 🏊 6. PRISTINE THE LORDS BANER 20+ SIGNATURE AMENITIES & SKY LOUNGE -->
   <url>
-    <loc>https://pristinethelords.in/pristine-the-lords-luxury-amenities-sky-lounge</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-luxury-amenities-sky-lounge</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🛠️ 6. PRISTINE THE LORDS 10-TIER ARCHITECTURAL SPECIFICATIONS -->
+  <!-- 🛠️ 7. PRISTINE THE LORDS BANER 10-TIER ARCHITECTURAL SPECIFICATIONS & ITALIAN MARBLE -->
   <url>
-    <loc>https://pristinethelords.in/pristine-the-lords-specifications-mivan-italian-marble</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-specifications-mivan-italian-marble</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 📍 7. PRISTINE THE LORDS LOCATION & BANER-PASHAN LINK ROAD -->
+  <!-- 📍 8. PRISTINE THE LORDS BANER PASHAN LINK ROAD LOCATION -->
   <url>
     <loc>https://pristinethelords.in/pristine-the-lords-baner-pashan-link-road-location</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🚗 8. PRISTINE THE LORDS COMMUTE & TRANSIT MATRIX -->
+  <!-- 🚗 9. PRISTINE THE LORDS BANER COMMUTE & TRANSIT MATRIX -->
   <url>
-    <loc>https://pristinethelords.in/pristine-the-lords-transit-commute-hinjewadi-balewadi</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-transit-commute-hinjewadi-balewadi</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- 🌍 9. PRISTINE THE LORDS NRI INVESTMENT & FEMA DESK -->
+  <!-- 🌍 10. PRISTINE THE LORDS BANER NRI REAL ESTATE INVESTMENT -->
   <url>
-    <loc>https://pristinethelords.in/pristine-the-lords-nri-real-estate-investment-pune</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-nri-real-estate-investment</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 📊 10. PUNE LUXURY REAL ESTATE MARKET SWEEP -->
+  <!-- 📊 11. PRISTINE THE LORDS BANER PUNE LUXURY REAL ESTATE ABOVE 2 CRORE -->
   <url>
-    <loc>https://pristinethelords.in/pune-luxury-real-estate-market-sweep-above-2-crore</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-pune-luxury-real-estate-above-2-crore</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🔍 11. BANER & WEST PUNE REAL ESTATE KEYWORD DIRECTORY -->
+  <!-- 🔍 12. PRISTINE THE LORDS BANER KEYWORD SEARCH DIRECTORY -->
   <url>
     <loc>https://pristinethelords.in/pristine-the-lords-baner-keyword-search-directory</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 🏗️ 12. PRISTINE THE LORDS MAHARERA CONSTRUCTION TRACKER -->
+  <!-- 🏗️ 13. PRISTINE THE LORDS BANER MAHARERA P52100078557 STATUS -->
   <url>
-    <loc>https://pristinethelords.in/pristine-the-lords-maharera-p52100078557-construction-status</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-maharera-p52100078557-status</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- ❓ 13. PRISTINE THE LORDS FREQUENTLY ASKED QUESTIONS -->
+  <!-- ❓ 14. PRISTINE THE LORDS BANER FAQS & PRICE POSSESSION -->
   <url>
-    <loc>https://pristinethelords.in/pristine-the-lords-faqs-price-carpet-area-possession</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-faqs-price-possession</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 
-  <!-- 📥 14. PRISTINE THE LORDS OFFICIAL BROCHURE DOWNLOAD -->
+  <!-- 📥 15. PRISTINE THE LORDS BANER OFFICIAL BROCHURE DOWNLOAD PDF -->
   <url>
-    <loc>https://pristinethelords.in/pristine-the-lords-brochure-download-pdf</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-brochure-download-pdf</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>
   </url>
 
-  <!-- 📚 15. ARTICLE 1: BANER PASHAN LINK ROAD INVESTMENT GUIDE -->
+  <!-- 🏦 16. PRISTINE THE LORDS BANER BANKING & INSTITUTIONAL FINANCING -->
   <url>
-    <loc>https://pristinethelords.in/baner-pashan-link-road-luxury-real-estate-investment-guide</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-banking-institutional-financing</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 📞 17. PRISTINE THE LORDS BANER CONTACT & VIP SALES OFFICE -->
+  <url>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-contact-sales-office</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- 📚 18. ARTICLE 1: BANER PASHAN LINK ROAD LUXURY INVESTMENT GUIDE -->
+  <url>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-pashan-link-road-investment-guide</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
 
-  <!-- 📚 16. ARTICLE 2: 3 BHK VS 4.5 BHK COMPARISON -->
+  <!-- 📚 19. ARTICLE 2: 3 BHK VS 4.5 BHK ROI COMPARISON -->
   <url>
-    <loc>https://pristinethelords.in/3-bhk-vs-4-bhk-luxury-apartments-pune-roi-comparison</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-3-bhk-vs-4-bhk-roi-comparison</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
 
-  <!-- 📚 17. ARTICLE 3: NRI FEMA REAL ESTATE INVESTMENT GUIDE -->
+  <!-- 📚 20. ARTICLE 3: NRI FEMA REAL ESTATE INVESTMENT GUIDE -->
   <url>
-    <loc>https://pristinethelords.in/nri-fema-real-estate-investment-guide-pune-india</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-nri-fema-investment-guide</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
 
-  <!-- 📚 18. ARTICLE 4: MAHARERA DUE DILIGENCE CHECKLIST -->
+  <!-- 📚 21. ARTICLE 4: MAHARERA DUE DILIGENCE CHECKLIST -->
   <url>
-    <loc>https://pristinethelords.in/maharera-due-diligence-checklist-luxury-apartments-pune</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-maharera-due-diligence-checklist</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>
 
-  <!-- 📚 19. ARTICLE 5: MIVAN FORMWORK VS CONVENTIONAL BRICKWORK -->
+  <!-- 📚 22. ARTICLE 5: MIVAN FORMWORK VS CONVENTIONAL BRICKWORK -->
   <url>
-    <loc>https://pristinethelords.in/mivan-construction-technology-vs-conventional-brickwork</loc>
-    <lastmod>2026-08-25T00:00:00+05:30</lastmod>
+    <loc>https://pristinethelords.in/pristine-the-lords-baner-mivan-construction-technology</loc>
+    <lastmod>2026-08-26T00:00:00+05:30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.88</priority>
   </url>

@@ -211,7 +211,12 @@ export const PuneMarketDominanceSweep: React.FC = () => {
           </div>
 
           <a
-            href="#download-brochure"
+            href="/pristine-the-lords-baner-brochure-download-pdf"
+            onClick={(e) => {
+              e.preventDefault();
+              window.history.pushState(null, '', '/pristine-the-lords-baner-brochure-download-pdf');
+              document.getElementById('download-brochure')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="btn-pristine-orange px-8 py-3 rounded-full text-xs uppercase tracking-wider font-bold shadow-pristine-orange whitespace-nowrap"
           >
             <span>DOWNLOAD COMPLETE MARKET DOSSIER</span>

@@ -76,7 +76,7 @@ export const FloatingQuickBar: React.FC<FloatingQuickBarProps> = ({ onOpenBrochu
 
         {/* 3. Instant Brochure Download */}
         <a
-          href="#download-brochure"
+          href="/pristine-the-lords-baner-brochure-download-pdf"
           onClick={(e) => {
             if (onOpenBrochure) {
               e.preventDefault();

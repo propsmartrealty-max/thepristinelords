@@ -11,7 +11,7 @@ interface FooterProps {
   onShowToast?: (message: string) => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenBrochure, onOpenVipTour, onShowToast }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -24,6 +24,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
   const [copiedRera, setCopiedRera] = useState(false);
 
   const scrollToTop = () => {
+    window.history.pushState(null, '', '/');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -32,6 +33,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
     setCopiedRera(true);
     if (onShowToast) onShowToast(`COPIED MAHARERA: ${PROJECT_DETAILS.reraNumber}`);
     setTimeout(() => setCopiedRera(false), 2500);
+  };
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, targetId: string) => {
+    e.preventDefault();
+    window.history.pushState(null, '', href);
+    const element = document.getElementById(targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const validate = () => {
@@ -98,145 +108,153 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
                 GET INSTANT ACCESS TO SANCTIONED ARCHITECTURAL BLUEPRINTS, COMPREHENSIVE 10-TIER SPECIFICATIONS, 20+ LIFESTYLE AMENITIES CATALOG, AND FLOOR PLANS FOR <strong>THE LORD'S BY PRISTINE DEVELOPER</strong>.
               </p>
 
-              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-gray-700 font-google">
-                <button
-                  onClick={handleCopyRera}
-                  className="flex items-center space-x-1.5 hover:text-pristine-orange transition-colors cursor-pointer group"
-                >
-                  <ShieldCheck className="w-4 h-4 text-pristine-orange" />
-                  <span>MAHA RERA: <strong className="text-gray-900 group-hover:underline">{PROJECT_DETAILS.reraNumber}</strong></span>
-                  {copiedRera ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-gray-400 opacity-60 group-hover:opacity-100" />}
-                </button>
-                <div className="flex items-center space-x-1.5">
-                  <Waves className="w-4 h-4 text-sky-500" />
-                  <span>INSTANT PDF & WHATSAPP COPY</span>
-                </div>
+              <div className="pt-2 flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs text-gray-500 font-medium font-google">
+                <span className="flex items-center space-x-1">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                  <span>3 & 4.5 BHK FLOOR PLANS</span>
+                </span>
+                <span className="flex items-center space-x-1">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                  <span>MAHARERA: {PROJECT_DETAILS.reraNumber}</span>
+                </span>
+                <span className="flex items-center space-x-1">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+                  <span>INSTANT PDF ACCESS</span>
+                </span>
               </div>
             </div>
 
-            {/* Right Form Card */}
+            {/* Right Interactive Form */}
             <div className="lg:col-span-6">
               {isSubmitted ? (
-                <div className="p-8 rounded-2xl bg-white/90 border border-emerald-300 text-center space-y-4 shadow-sm backdrop-blur-md">
-                  <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-sm">
-                    <CheckCircle2 className="w-8 h-8" />
+                <div className="p-8 rounded-3xl bg-emerald-50/90 border border-emerald-300 text-center space-y-4 shadow-sm animate-scaleIn">
+                  <div className="w-16 h-16 rounded-full bg-emerald-500 text-white flex items-center justify-center mx-auto shadow-md">
+                    <CheckCircle2 className="w-9 h-9" />
                   </div>
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-gray-900">
-                    BROCHURE SENT SUCCESSFULLY!
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-emerald-950">
+                    DOSSIER UNLOCKED
                   </h3>
-                  <p className="text-xs text-gray-600 font-light font-google">
-                    THANK YOU, <strong className="text-gray-900">{formData.name}</strong>. THE OFFICIAL BROCHURE FOR <strong>{formData.bhk}</strong> HAS BEEN DISPATCHED TO YOUR WHATSAPP AND EMAIL.
+                  <p className="text-xs sm:text-sm text-emerald-800 font-light leading-relaxed font-google">
+                    THANK YOU, <strong>{formData.name.toUpperCase()}</strong>. THE COMPLETE ARCHITECTURAL BROCHURE HAS BEEN SENT TO YOUR DETAILS AND SALES ADVISORS ARE AT YOUR SERVICE.
                   </p>
-                  <a
-                    href={`https://wa.me/${PROJECT_DETAILS.whatsapp}?text=${encodeURIComponent(`Hi Pristine Sales Team, I just downloaded the brochure for ${formData.bhk} at The Lord's Pashan. My name is ${formData.name}.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-pristine-orange inline-flex items-center space-x-2 px-8 py-3 rounded-2xl text-xs uppercase tracking-wider shadow-pristine-orange font-bold font-google"
-                  >
-                    <span>OPEN IN WHATSAPP</span>
-                  </a>
-                </div>
-              ) : (
-                <form onSubmit={handleBrochureSubmit} className="bg-white/85 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/90 shadow-sm space-y-3.5 font-google" noValidate>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                      <label className="text-[11px] text-gray-700 font-bold block mb-1">FULL NAME *</label>
-                      <div className="relative">
-                        <User className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="text"
-                          required
-                          autoComplete="name"
-                          placeholder="YOUR NAME"
-                          value={formData.name}
-                          onChange={(e) => {
-                            setFormData({ ...formData, name: e.target.value });
-                            if (errors.name) setErrors({ ...errors, name: undefined });
-                          }}
-                          className={`w-full pl-9 pr-3 py-2.5 rounded-xl bg-white border ${
-                            errors.name ? 'border-red-500' : 'border-gray-300'
-                          } text-gray-900 placeholder-gray-400 text-xs focus:outline-none focus:border-pristine-orange uppercase shadow-sm`}
-                        />
-                      </div>
-                      {errors.name && (
-                        <p className="text-[9px] text-red-500 font-bold mt-1">{errors.name}</p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label className="text-[11px] text-gray-700 font-bold block mb-1">MOBILE NUMBER *</label>
-                      <div className="relative">
-                        <Smartphone className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="tel"
-                          required
-                          inputMode="tel"
-                          autoComplete="tel"
-                          placeholder="+91 98765 43210"
-                          value={formData.phone}
-                          onChange={(e) => {
-                            setFormData({ ...formData, phone: e.target.value });
-                            if (errors.phone) setErrors({ ...errors, phone: undefined });
-                          }}
-                          className={`w-full pl-9 pr-3 py-2.5 rounded-xl bg-white border ${
-                            errors.phone ? 'border-red-500' : 'border-gray-300'
-                          } text-gray-900 placeholder-gray-400 text-xs focus:outline-none focus:border-pristine-orange shadow-sm`}
-                        />
-                      </div>
-                      {errors.phone && (
-                        <p className="text-[9px] text-red-500 font-bold mt-1">{errors.phone}</p>
-                      )}
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                      <label className="text-[11px] text-gray-700 font-bold block mb-1">EMAIL ADDRESS *</label>
-                      <div className="relative">
-                        <Mail className="w-3.5 h-3.5 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                        <input
-                          type="email"
-                          required
-                          inputMode="email"
-                          autoComplete="email"
-                          placeholder="NAME@EMAIL.COM"
-                          value={formData.email}
-                          onChange={(e) => {
-                            setFormData({ ...formData, email: e.target.value });
-                            if (errors.email) setErrors({ ...errors, email: undefined });
-                          }}
-                          className={`w-full pl-9 pr-3 py-2.5 rounded-xl bg-white border ${
-                            errors.email ? 'border-red-500' : 'border-gray-300'
-                          } text-gray-900 placeholder-gray-400 text-xs focus:outline-none focus:border-pristine-orange uppercase shadow-sm`}
-                        />
-                      </div>
-                      {errors.email && (
-                        <p className="text-[9px] text-red-500 font-bold mt-1">{errors.email}</p>
-                      )}
-                    </div>
-
-                    <div>
-                      <label className="text-[11px] text-gray-700 font-bold block mb-1">CONFIGURATION</label>
-                      <select
-                        value={formData.bhk}
-                        onChange={(e) => setFormData({ ...formData, bhk: e.target.value })}
-                        className="w-full px-3 py-2.5 rounded-xl bg-white border border-gray-300 text-gray-900 text-xs focus:outline-none focus:border-pristine-orange uppercase font-google shadow-sm"
-                      >
-                        <option value="3 BHK">3 BHK LUXURY RESIDENCE (1,554 SQ.FT)</option>
-                        <option value="4.5 BHK">4.5 BHK LUXURY ESTATE RESIDENCE (2,005 SQ.FT)</option>
-                      </select>
-                    </div>
-                  </div>
-
                   <div className="pt-2">
                     <button
-                      type="submit"
-                      disabled={loading}
-                      className="btn-pristine-orange w-full py-3.5 rounded-2xl text-xs tracking-wider flex items-center justify-center space-x-2 shadow-pristine-orange font-bold font-google"
+                      onClick={() => setIsSubmitted(false)}
+                      className="px-6 py-2 rounded-full bg-emerald-600 text-white text-xs font-bold uppercase tracking-wider hover:bg-emerald-700 transition-colors shadow-sm"
                     >
-                      <Download className="w-4 h-4" />
-                      <span>{loading ? "GENERATING BROCHURE..." : "DOWNLOAD OFFICIAL BROCHURE NOW"}</span>
+                      REQUEST ANOTHER COPY
                     </button>
+                  </div>
+                </div>
+              ) : (
+                <form onSubmit={handleBrochureSubmit} className="space-y-3.5 bg-white/90 p-6 sm:p-8 rounded-3xl border border-white/80 shadow-sm font-google">
+                  <div className="text-left">
+                    <label className="block text-[11px] font-bold text-gray-700 mb-1 tracking-wider">YOUR FULL NAME</label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                        <User className="w-4 h-4" />
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="ENTER YOUR NAME"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className={`w-full pl-10 pr-4 py-3 rounded-2xl bg-gray-50 border text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white transition-all uppercase ${
+                          errors.name ? 'border-red-400 focus:border-red-500' : 'border-gray-200 focus:border-pristine-orange'
+                        }`}
+                      />
+                    </div>
+                    {errors.name && <p className="text-[10px] text-red-500 mt-1 font-bold">{errors.name}</p>}
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-left">
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-700 mb-1 tracking-wider">PHONE NUMBER</label>
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                          <Smartphone className="w-4 h-4" />
+                        </div>
+                        <input
+                          type="tel"
+                          placeholder="10-DIGIT MOBILE"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          className={`w-full pl-10 pr-4 py-3 rounded-2xl bg-gray-50 border text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white transition-all ${
+                            errors.phone ? 'border-red-400 focus:border-red-500' : 'border-gray-200 focus:border-pristine-orange'
+                          }`}
+                        />
+                      </div>
+                      {errors.phone && <p className="text-[10px] text-red-500 mt-1 font-bold">{errors.phone}</p>}
+                    </div>
+
+                    <div>
+                      <label className="block text-[11px] font-bold text-gray-700 mb-1 tracking-wider">EMAIL ADDRESS</label>
+                      <div className="relative">
+                        <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-gray-400">
+                          <Mail className="w-4 h-4" />
+                        </div>
+                        <input
+                          type="email"
+                          placeholder="EMAIL FOR PDF"
+                          value={formData.email}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                          className={`w-full pl-10 pr-4 py-3 rounded-2xl bg-gray-50 border text-xs sm:text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:bg-white transition-all uppercase ${
+                            errors.email ? 'border-red-400 focus:border-red-500' : 'border-gray-200 focus:border-pristine-orange'
+                          }`}
+                        />
+                      </div>
+                      {errors.email && <p className="text-[10px] text-red-500 mt-1 font-bold">{errors.email}</p>}
+                    </div>
+                  </div>
+
+                  <div className="text-left">
+                    <label className="block text-[11px] font-bold text-gray-700 mb-1 tracking-wider">PREFERRED CONFIGURATION</label>
+                    <div className="grid grid-cols-2 gap-2">
+                      {['3 BHK (1554 SQ.FT)', '4.5 BHK (2005 SQ.FT)'].map((config) => (
+                        <button
+                          key={config}
+                          type="button"
+                          onClick={() => setFormData({ ...formData, bhk: config })}
+                          className={`py-2 px-3 rounded-xl border text-[11px] font-bold transition-all ${
+                            formData.bhk === config
+                              ? 'bg-pristine-orange text-white border-pristine-orange shadow-sm'
+                              : 'bg-gray-50 text-gray-700 border-gray-200 hover:bg-white'
+                          }`}
+                        >
+                          {config}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full btn-pristine-orange py-3.5 rounded-2xl text-xs font-bold uppercase tracking-wider shadow-pristine-orange hover:shadow-orange-500/40 transition-all duration-300 flex items-center justify-center space-x-2 mt-2"
+                  >
+                    {loading ? (
+                      <span className="flex items-center space-x-2">
+                        <Waves className="w-4 h-4 animate-spin" />
+                        <span>PROCESSING...</span>
+                      </span>
+                    ) : (
+                      <>
+                        <Download className="w-4 h-4" />
+                        <span>DOWNLOAD OFFICIAL BROCHURE</span>
+                      </>
+                    )}
+                  </button>
+
+                  <div className="flex items-center justify-center space-x-4 pt-1 text-[10px] text-gray-400">
+                    <span className="flex items-center space-x-1">
+                      <ShieldCheck className="w-3 h-3 text-emerald-500" />
+                      <span>NO SPAM GUARANTEE</span>
+                    </span>
+                    <span>•</span>
+                    <span className="flex items-center space-x-1">
+                      <CheckCircle2 className="w-3 h-3 text-sky-500" />
+                      <span>OFFICIAL PRISTINE DESK</span>
+                    </span>
                   </div>
                 </form>
               )}
@@ -273,7 +291,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
                 {copiedRera ? <Check className="w-3.5 h-3.5 text-emerald-600 ml-auto" /> : <Copy className="w-3.5 h-3.5 text-gray-400 ml-auto opacity-50 group-hover:opacity-100" />}
               </button>
               <p className="text-[11px] text-gray-500 font-google">
-                VERIFIED ON <a href={PROJECT_DETAILS.reraLink} target="_blank" rel="noopener noreferrer" className="text-pristine-orange hover:underline font-bold">MAHARERA.MAHAONLINE.GOV.IN</a>
+                VERIFIED ON <a href={PROJECT_DETAILS.reraLink} target="_blank" rel="noopener noreferrer" className="text-pristine-orange hover:underline font-bold">MAHARERA.MAHARASHTRA.GOV.IN</a>
               </p>
               <div className="pt-1 text-[11px] text-gray-600 border-t border-gray-100 font-google">
                 FINANCED BY: <strong className="text-gray-900">{PROJECT_DETAILS.financedBy}</strong>
@@ -281,20 +299,20 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
             </div>
           </div>
 
-          {/* Quick Menu */}
+          {/* Quick Menu with Clean Keyword URLs */}
           <div className="lg:col-span-2 space-y-3 font-google">
             <h4 className="font-serif font-bold text-gray-900 text-sm tracking-wider">
               MENU
             </h4>
             <ul className="space-y-2 text-xs font-bold text-gray-600">
-              <li><a href="#overview" className="hover:text-pristine-orange transition-colors">HOME & OVERVIEW</a></li>
-              <li><a href="#specifications" className="hover:text-pristine-orange transition-colors">SPECIFICATION</a></li>
-              <li><a href="#amenities" className="hover:text-pristine-orange transition-colors">AMENITIES</a></li>
-              <li><a href="#master-layout" className="hover:text-pristine-orange transition-colors font-bold text-pristine-orange">MASTER LAYOUT</a></li>
-              <li><a href="#floor-plans" className="hover:text-pristine-orange transition-colors">FLOOR PLANS</a></li>
-              <li><a href="#financing" className="hover:text-pristine-orange transition-colors">FINANCED BY</a></li>
-              <li><a href="#download-brochure" className="hover:text-pristine-orange transition-colors font-bold text-pristine-orange">DOWNLOAD BROCHURE</a></li>
-              <li><a href="#contact" className="hover:text-pristine-orange transition-colors">CONTACT US</a></li>
+              <li><a href="/pristine-the-lords-baner-project-overview" onClick={(e) => handleLinkClick(e, '/pristine-the-lords-baner-project-overview', 'overview')} className="hover:text-pristine-orange transition-colors">HOME & OVERVIEW</a></li>
+              <li><a href="/pristine-the-lords-baner-specifications-mivan-italian-marble" onClick={(e) => handleLinkClick(e, '/pristine-the-lords-baner-specifications-mivan-italian-marble', 'specifications')} className="hover:text-pristine-orange transition-colors">SPECIFICATION</a></li>
+              <li><a href="/pristine-the-lords-baner-luxury-amenities-sky-lounge" onClick={(e) => handleLinkClick(e, '/pristine-the-lords-baner-luxury-amenities-sky-lounge', 'amenities')} className="hover:text-pristine-orange transition-colors">AMENITIES</a></li>
+              <li><a href="/pristine-the-lords-baner-master-layout-floor-plans" onClick={(e) => handleLinkClick(e, '/pristine-the-lords-baner-master-layout-floor-plans', 'master-layout')} className="hover:text-pristine-orange transition-colors font-bold text-pristine-orange">MASTER LAYOUT</a></li>
+              <li><a href="/pristine-the-lords-baner-3-bhk-luxury-apartments" onClick={(e) => handleLinkClick(e, '/pristine-the-lords-baner-3-bhk-luxury-apartments', 'residences')} className="hover:text-pristine-orange transition-colors">FLOOR PLANS</a></li>
+              <li><a href="/pristine-the-lords-baner-banking-institutional-financing" onClick={(e) => handleLinkClick(e, '/pristine-the-lords-baner-banking-institutional-financing', 'financing')} className="hover:text-pristine-orange transition-colors">FINANCED BY</a></li>
+              <li><a href="/pristine-the-lords-baner-brochure-download-pdf" onClick={(e) => handleLinkClick(e, '/pristine-the-lords-baner-brochure-download-pdf', 'download-brochure')} className="hover:text-pristine-orange transition-colors font-bold text-pristine-orange">DOWNLOAD BROCHURE</a></li>
+              <li><a href="/pristine-the-lords-baner-contact-sales-office" onClick={(e) => handleLinkClick(e, '/pristine-the-lords-baner-contact-sales-office', 'contact')} className="hover:text-pristine-orange transition-colors">CONTACT US</a></li>
             </ul>
           </div>
 
@@ -308,7 +326,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
               <li><span className="hover:text-pristine-orange cursor-pointer">BRAND TEAM</span></li>
               <li><span className="hover:text-pristine-orange cursor-pointer">LIFE AT PRISTINE</span></li>
               <li><span className="hover:text-pristine-orange cursor-pointer">ONGOING & UPCOMING</span></li>
-              <li><span className="hover:text-pristine-orange cursor-pointer">NRI CORNER</span></li>
+              <li><a href="/pristine-the-lords-baner-nri-real-estate-investment" onClick={(e) => handleLinkClick(e, '/pristine-the-lords-baner-nri-real-estate-investment', 'nri-corner')} className="hover:text-pristine-orange transition-colors">NRI CORNER</a></li>
               <li><span className="hover:text-pristine-orange cursor-pointer">CLIENTS TESTIMONIALS</span></li>
               <li><span className="hover:text-pristine-orange cursor-pointer">PRISTINE CARE</span></li>
             </ul>
@@ -329,34 +347,21 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
                 title="Open location in Google Maps"
               >
                 <MapPin className="w-4 h-4 text-pristine-orange flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-gray-900 block group-hover:text-pristine-orange transition-colors flex items-center space-x-1">
-                    <span>THE LORD'S SITE LOCATION:</span>
-                    <ExternalLink className="w-3 h-3 text-pristine-orange" />
-                  </strong>
-                  <span className="underline underline-offset-2">{PROJECT_DETAILS.siteAddress}</span>
-                </div>
+                <span className="font-google group-hover:underline">{PROJECT_DETAILS.siteAddress}</span>
               </a>
 
-              <div className="flex items-start space-x-2">
-                <Building className="w-4 h-4 text-pristine-orange flex-shrink-0 mt-0.5" />
-                <div>
-                  <strong className="text-gray-900 block">PRISTINE DEVELOPERS:</strong>
-                  <span>{PROJECT_DETAILS.o2Address}</span>
+              <div className="pt-2 border-t border-gray-200/60 space-y-2 font-mono text-xs">
+                <div className="flex items-center space-x-2 font-bold text-gray-900">
+                  <Phone className="w-3.5 h-3.5 text-pristine-orange" />
+                  <a href={`tel:${PROJECT_DETAILS.phone}`} className="hover:text-pristine-orange">{PROJECT_DETAILS.phone}</a>
                 </div>
-              </div>
-
-              <div className="flex items-center space-x-2 pt-1 font-google">
-                <Phone className="w-4 h-4 text-pristine-orange flex-shrink-0" />
-                <a href={`tel:${PROJECT_DETAILS.phone}`} className="text-pristine-orange font-bold hover:underline">
-                  +91 - 9209090022
-                </a>
-              </div>
-
-              <div className="flex flex-col space-y-1 pt-1 text-[11px] text-gray-500 font-google">
+                <div className="flex items-center space-x-2 text-gray-600">
+                  <Phone className="w-3.5 h-3.5 text-gray-400" />
+                  <a href={`tel:${PROJECT_DETAILS.phoneAlt}`} className="hover:text-pristine-orange">{PROJECT_DETAILS.phoneAlt}</a>
+                </div>
                 <div className="flex items-center space-x-1.5">
                   <Mail className="w-3.5 h-3.5 text-pristine-orange" />
-                  <a href={`mailto:propsmartrealty@gmail.com`} className="hover:text-gray-900">propsmartrealty@gmail.com</a>
+                  <a href={`mailto:${PROJECT_DETAILS.email}`} className="hover:text-gray-900">{PROJECT_DETAILS.email}</a>
                 </div>
                 <div className="flex items-center space-x-1.5">
                   <Mail className="w-3.5 h-3.5 text-pristine-orange" />
@@ -367,7 +372,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenVipTour, onShowToast }) =>
 
             <div className="pt-2 flex gap-2 font-google">
               <a
-                href="#download-brochure"
+                href="/pristine-the-lords-baner-brochure-download-pdf"
+                onClick={(e) => {
+                  if (onOpenBrochure) {
+                    e.preventDefault();
+                    onOpenBrochure();
+                  } else {
+                    handleLinkClick(e, '/pristine-the-lords-baner-brochure-download-pdf', 'download-brochure');
+                  }
+                }}
                 className="flex-1 py-2.5 rounded-2xl bg-white border border-gray-300 text-gray-700 text-xs font-bold uppercase tracking-wider hover:border-pristine-orange text-center transition-colors shadow-sm"
               >
                 BROCHURE

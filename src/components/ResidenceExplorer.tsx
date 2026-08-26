@@ -11,7 +11,7 @@ interface ResidenceExplorerProps {
   onOpenVipTour: () => void;
 }
 
-export const ResidenceExplorer: React.FC<ResidenceExplorerProps> = ({ onOpenVipTour }) => {
+export const ResidenceExplorer: React.FC<ResidenceExplorerProps> = ({ onOpenBrochure, onOpenVipTour }) => {
   const [activeTab, setActiveTab] = useState<'master' | '3bhk' | '4.5bhk'>('master');
   const [isZoomed, setIsZoomed] = useState(false);
 
@@ -141,7 +141,13 @@ export const ResidenceExplorer: React.FC<ResidenceExplorerProps> = ({ onOpenVipT
             {/* Action CTAs */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-google">
               <a
-                href="#download-brochure"
+                href="/pristine-the-lords-baner-brochure-download-pdf"
+                onClick={(e) => {
+                  if (onOpenBrochure) {
+                    e.preventDefault();
+                    onOpenBrochure();
+                  }
+                }}
                 className="w-full sm:w-auto btn-pristine-outline px-6 py-3.5 rounded-2xl text-xs tracking-wider flex items-center justify-center space-x-2 shadow-sm border border-white/90"
               >
                 <Download className="w-4 h-4 text-pristine-orange" />
@@ -186,7 +192,13 @@ export const ResidenceExplorer: React.FC<ResidenceExplorerProps> = ({ onOpenVipT
             {/* Action CTAs */}
             <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-google">
               <a
-                href="#download-brochure"
+                href="/pristine-the-lords-baner-brochure-download-pdf"
+                onClick={(e) => {
+                  if (onOpenBrochure) {
+                    e.preventDefault();
+                    onOpenBrochure();
+                  }
+                }}
                 className="w-full sm:w-auto btn-pristine-outline px-6 py-3.5 rounded-2xl text-xs tracking-wider flex items-center justify-center space-x-2 shadow-sm border border-white/90"
               >
                 <Download className="w-4 h-4 text-pristine-orange" />

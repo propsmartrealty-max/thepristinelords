@@ -28,15 +28,32 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBrochure, onOpenVipTour })
   }, []);
 
   const navLinks = [
-    { name: "ABOUT", href: "#overview" },
-    { name: "SPECIFICATION", href: "#specifications" },
-    { name: "AMENITIES", href: "#amenities" },
-    { name: "MASTER LAYOUT", href: "#master-layout" },
-    { name: "FLOOR PLANS", href: "#floor-plans" },
-    { name: "FINANCED BY", href: "#financing" },
-    { name: "LOCATION", href: "#location" },
-    { name: "CONTACT", href: "#contact" },
+    { name: "ABOUT", href: "/pristine-the-lords-baner-project-overview", targetId: "overview" },
+    { name: "SPECIFICATION", href: "/pristine-the-lords-baner-specifications-mivan-italian-marble", targetId: "specifications" },
+    { name: "AMENITIES", href: "/pristine-the-lords-baner-luxury-amenities-sky-lounge", targetId: "amenities" },
+    { name: "MASTER LAYOUT", href: "/pristine-the-lords-baner-master-layout-floor-plans", targetId: "master-layout" },
+    { name: "FLOOR PLANS", href: "/pristine-the-lords-baner-3-bhk-luxury-apartments", targetId: "residences" },
+    { name: "FINANCED BY", href: "/pristine-the-lords-baner-banking-institutional-financing", targetId: "financing" },
+    { name: "LOCATION", href: "/pristine-the-lords-baner-pashan-link-road-location", targetId: "location" },
+    { name: "CONTACT", href: "/pristine-the-lords-baner-contact-sales-office", targetId: "contact" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, link: typeof navLinks[0]) => {
+    e.preventDefault();
+    setActiveLink(link.name);
+    window.history.pushState(null, '', link.href);
+    const element = document.getElementById(link.targetId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    window.history.pushState(null, '', '/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -50,7 +67,8 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBrochure, onOpenVipTour })
           {/* Left: Official Brand Logo */}
           <div className="flex items-center flex-shrink-0 relative z-10 pl-1">
             <a
-              href="#"
+              href="/"
+              onClick={handleLogoClick}
               className="flex items-center group py-0.5 px-2 rounded-xl transition-all duration-300 hover:bg-orange-50/60"
               aria-label="The Lords by Pristine Developer Home"
             >
@@ -62,7 +80,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBrochure, onOpenVipTour })
             </a>
           </div>
 
-          {/* Center: Evenly Distributed Navigation Links */}
+          {/* Center: Evenly Distributed Navigation Links with Clean Semantic URLs */}
           <nav className="hidden lg:flex items-center justify-center flex-1 space-x-1 xl:space-x-2 2xl:space-x-3.5 text-[11px] xl:text-[11.5px] 2xl:text-xs uppercase font-bold tracking-[0.06em] 2xl:tracking-[0.1em] text-gray-700 whitespace-nowrap flex-nowrap relative z-10 px-2">
             {navLinks.map((link) => {
               const isActive = activeLink === link.name;
@@ -70,7 +88,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBrochure, onOpenVipTour })
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setActiveLink(link.name)}
+                  onClick={(e) => handleNavClick(e, link)}
                   className={`relative px-2.5 xl:px-3 py-1.5 rounded-full transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
                     isActive
                       ? 'text-pristine-orange bg-orange-50/90 font-extrabold shadow-sm'
@@ -145,7 +163,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBrochure, onOpenVipTour })
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, link)}
                 className="text-sm font-google font-bold tracking-wider text-gray-800 hover:text-pristine-orange transition-colors py-2 px-4 rounded-2xl hover:bg-gray-50 whitespace-nowrap"
               >
                 {link.name}

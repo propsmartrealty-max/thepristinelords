@@ -8,7 +8,7 @@ interface HeroProps {
   onOpenVipTour: () => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenVipTour }) => {
+export const Hero: React.FC<HeroProps> = ({ onOpenBrochure, onOpenVipTour }) => {
   const [viewMode, setViewMode] = useState<'video' | 'gallery'>('video');
   const [isMuted, setIsMuted] = useState(true);
   const [activeSlide, setActiveSlide] = useState(0);
@@ -117,7 +117,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenVipTour }) => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md sm:max-w-none mb-10 font-google">
           <a
-            href="#download-brochure"
+            href="/pristine-the-lords-baner-brochure-download-pdf"
+            onClick={(e) => {
+              if (onOpenBrochure) {
+                e.preventDefault();
+                onOpenBrochure();
+              }
+            }}
             className="btn-pristine-outline w-full sm:w-auto px-8 py-3.5 rounded-full text-xs tracking-wider flex items-center justify-center space-x-2 shadow-glass-luxury border border-white/90"
           >
             <Download className="w-4 h-4 text-pristine-orange" />

@@ -34,20 +34,56 @@ import { Toast } from './components/Toast';
 import { ErrorBoundary } from './components/ErrorBoundary';
 
 const CLEAN_PATH_TO_SECTION: Record<string, string> = {
+  // 🎯 Core Pristine The Lords Baner Clean Keyword Slugs
+  '/pristine-the-lords-baner-luxury-apartments': 'overview',
+  '/pristine-the-lords-baner-project-overview': 'overview',
+  '/pristine-the-lords-baner-3-bhk-luxury-apartments': 'residences',
+  '/pristine-the-lords-baner-4-5-bhk-sky-villas': 'residences',
+  '/pristine-the-lords-baner-master-layout-floor-plans': 'master-layout',
+  '/pristine-the-lords-baner-luxury-amenities-sky-lounge': 'amenities',
+  '/pristine-the-lords-baner-specifications-mivan-italian-marble': 'specifications',
+  '/pristine-the-lords-baner-pashan-link-road-location': 'location',
+  '/pristine-the-lords-baner-transit-commute-hinjewadi-balewadi': 'commute-matrix',
+  '/pristine-the-lords-baner-nri-real-estate-investment': 'nri-corner',
+  '/pristine-the-lords-baner-pune-luxury-real-estate-above-2-crore': 'pune-market-dominance',
+  '/pristine-the-lords-baner-keyword-search-directory': 'corridor-seo',
+  '/pristine-the-lords-baner-maharera-p52100078557-status': 'maharera-compliance',
+  '/pristine-the-lords-baner-faqs-price-possession': 'faq',
+  '/pristine-the-lords-baner-brochure-download-pdf': 'download-brochure',
+  '/pristine-the-lords-baner-banking-institutional-financing': 'financing',
+  '/pristine-the-lords-baner-contact-sales-office': 'contact',
+
+  // 🌍 NRI International Gateways
+  '/pristine-the-lords-baner-nri-investment-dubai-uae': 'nri-corner',
+  '/pristine-the-lords-baner-nri-investment-usa': 'nri-corner',
+  '/pristine-the-lords-baner-nri-investment-uk': 'nri-corner',
+  '/pristine-the-lords-baner-nri-investment-singapore': 'nri-corner',
+  '/nri-investment-dubai-uae': 'nri-corner',
+  '/nri-investment-usa': 'nri-corner',
+  '/nri-investment-uk': 'nri-corner',
+  '/nri-investment-singapore': 'nri-corner',
+
+  // 📚 Authority Real Estate Knowledge Articles
+  '/pristine-the-lords-baner-pashan-link-road-investment-guide': 'pune-market-dominance',
+  '/pristine-the-lords-baner-3-bhk-vs-4-bhk-roi-comparison': 'residences',
+  '/pristine-the-lords-baner-nri-fema-investment-guide': 'nri-corner',
+  '/pristine-the-lords-baner-maharera-due-diligence-checklist': 'maharera-compliance',
+  '/pristine-the-lords-baner-mivan-construction-technology': 'specifications',
+  '/baner-pashan-link-road-luxury-real-estate-investment-guide': 'pune-market-dominance',
+  '/3-bhk-vs-4-bhk-luxury-apartments-pune-roi-comparison': 'residences',
+  '/nri-fema-real-estate-investment-guide-pune-india': 'nri-corner',
+  '/maharera-due-diligence-checklist-luxury-apartments-pune': 'maharera-compliance',
+  '/mivan-construction-technology-vs-conventional-brickwork': 'specifications',
+
+  // Alternate legacy mappings for seamless zero-regression crawlability
   '/pristine-the-lords-3-bhk-luxury-apartments-baner': 'residences',
   '/pristine-the-lords-4-5-bhk-sky-villa-penthouses-pune': 'residences',
   '/pristine-the-lords-master-layout-floor-plans': 'master-layout',
   '/pristine-the-lords-luxury-amenities-sky-lounge': 'amenities',
   '/pristine-the-lords-specifications-mivan-italian-marble': 'specifications',
-  '/pristine-the-lords-baner-pashan-link-road-location': 'location',
   '/pristine-the-lords-transit-commute-hinjewadi-balewadi': 'commute-matrix',
   '/pristine-the-lords-nri-real-estate-investment-pune': 'nri-corner',
-  '/nri-investment-dubai-uae': 'nri-corner',
-  '/nri-investment-usa': 'nri-corner',
-  '/nri-investment-uk': 'nri-corner',
-  '/nri-investment-singapore': 'nri-corner',
   '/pune-luxury-real-estate-market-sweep-above-2-crore': 'pune-market-dominance',
-  '/pristine-the-lords-baner-keyword-search-directory': 'corridor-seo',
   '/pristine-the-lords-maharera-p52100078557-construction-status': 'construction-status',
   '/pristine-the-lords-faqs-price-carpet-area-possession': 'faq',
   '/pristine-the-lords-brochure-download-pdf': 'download-brochure'
