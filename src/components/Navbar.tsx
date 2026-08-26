@@ -82,9 +82,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBrochure, onOpenVipTour, o
           </div>
 
           <div className="flex items-center space-x-5 text-xs font-google">
-            <span className="text-gray-500 hidden lg:inline tracking-wider">
-              FINANCED BY <strong className="text-gray-900 font-semibold">{PROJECT_DETAILS.financedBy}</strong>
-            </span>
             <a 
               href={`tel:${PROJECT_DETAILS.phone}`}
               className="flex items-center space-x-1.5 text-pristine-orange hover:text-pristine-orangeHover transition-colors font-bold tracking-widest"
