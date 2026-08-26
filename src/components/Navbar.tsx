@@ -1,18 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Calendar, Menu, X, ShieldCheck, MapPin, Copy, Check } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/projectData';
+import { 
+  Phone, 
+  MapPin, 
+  Menu, 
+  X, 
+  ShieldCheck, 
+  Download, 
+  Calendar,
+  Sparkles,
+  Check,
+  Copy
+} from 'lucide-react';
 
 interface NavbarProps {
-  onOpenBrochure?: () => void;
+  onOpenBrochure: () => void;
   onOpenVipTour: () => void;
-  onShowToast?: (message: string) => void;
+  onShowToast?: (msg: string) => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenVipTour, onShowToast }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenBrochure, onOpenVipTour, onShowToast }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [copiedRera, setCopiedRera] = useState(false);
   const [activeLink, setActiveLink] = useState('ABOUT');
+  const [copiedRera, setCopiedRera] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,8 +36,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVipTour, onShowToast }) =>
   const handleCopyRera = () => {
     navigator.clipboard.writeText(PROJECT_DETAILS.reraNumber);
     setCopiedRera(true);
-    if (onShowToast) onShowToast(`COPIED MAHARERA NO: ${PROJECT_DETAILS.reraNumber}`);
-    setTimeout(() => setCopiedRera(false), 2500);
+    if (onShowToast) {
+      onShowToast(`MahaRERA No. ${PROJECT_DETAILS.reraNumber} copied to clipboard!`);
+    }
+    setTimeout(() => setCopiedRera(false), 3000);
   };
 
   const navLinks = [
@@ -42,9 +55,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVipTour, onShowToast }) =>
 
   return (
     <>
-      {/* Top Mini MahaRERA Strip */}
-      <div className="pt-2 pb-1 px-4 sm:px-8 font-google text-xs text-gray-700 hidden sm:block">
-        <div className="w-full max-w-[98%] 2xl:max-w-[1600px] mx-auto flex justify-between items-center px-6 py-1.5 rounded-full colorful-chip shadow-sm whitespace-nowrap">
+      {/* Top Mini MahaRERA Strip (Clean Flat Full-Width Bar without Pill Shape) */}
+      <div className="w-full border-b border-gray-200/70 bg-white/90 backdrop-blur-md font-google text-xs text-gray-700 hidden sm:block">
+        <div className="w-full max-w-[98%] 2xl:max-w-[1600px] mx-auto flex justify-between items-center px-4 sm:px-8 py-1.5 whitespace-nowrap">
           <div className="flex items-center space-x-5">
             <button
               onClick={handleCopyRera}
@@ -84,7 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVipTour, onShowToast }) =>
       </div>
 
       {/* 🌟 PERFECTLY INSET & FITTED FLOATING GLASS FLUIDIC NAVBAR PILL */}
-      <div className="sticky top-2 sm:top-3.5 z-40 w-full max-w-[98%] 2xl:max-w-[1600px] mx-auto px-3 sm:px-6 font-google">
+      <div className="sticky top-2 sm:top-3 z-40 w-full max-w-[98%] 2xl:max-w-[1600px] mx-auto px-3 sm:px-6 font-google">
         <header
           className={`relative transition-all duration-500 px-4 sm:px-6 py-2 flex items-center justify-between flex-nowrap whitespace-nowrap gap-3 lg:gap-5 glass-navbar-pill ${
             isScrolled ? 'shadow-2xl scale-[0.99]' : 'shadow-navbar-pill'
@@ -128,24 +141,28 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenVipTour, onShowToast }) =>
 
           {/* Right Side: Neatly Inset Inside the Pill with Perfect Margin */}
           <div className="hidden sm:flex items-center space-x-2.5 flex-shrink-0 relative z-10 pr-1">
-            <a
-              href={`tel:${PROJECT_DETAILS.phone}`}
-              className="hidden 2xl:flex items-center space-x-1.5 px-3.5 py-2 rounded-full bg-gray-50/90 border border-gray-200 text-gray-800 hover:text-pristine-orange text-xs font-bold tracking-wider transition-colors shadow-sm"
+            {/* Download Brochure Button */}
+            <button
+              onClick={onOpenBrochure}
+              className="px-3.5 xl:px-4 py-2 rounded-full border border-gray-300 hover:border-pristine-orange text-gray-800 hover:text-pristine-orange text-[11px] font-bold uppercase tracking-wider transition-all duration-200 hover:bg-white flex items-center space-x-1.5 flex-shrink-0 shadow-sm"
+              aria-label="Download Project Brochure"
             >
-              <Phone className="w-3.5 h-3.5 text-pristine-orange" />
-              <span>+91 9209090022</span>
-            </a>
+              <Download className="w-3.5 h-3.5 text-pristine-orange" />
+              <span className="hidden xl:inline">BROCHURE</span>
+            </button>
 
+            {/* Enquire Now CTA Button */}
             <button
               onClick={onOpenVipTour}
-              className="btn-pristine-orange px-5 xl:px-6 py-2 xl:py-2.5 rounded-full text-xs uppercase font-bold tracking-[0.12em] shadow-pristine-orange flex items-center space-x-1.5 whitespace-nowrap flex-shrink-0 cursor-pointer"
+              className="btn-pristine-orange px-4 xl:px-5 py-2 rounded-full text-white text-[11px] font-extrabold uppercase tracking-wider shadow-pristine-orange hover:shadow-orange-500/40 transition-all duration-200 flex items-center space-x-1.5 flex-shrink-0"
+              aria-label="Enquire Now"
             >
               <Calendar className="w-3.5 h-3.5" />
               <span>ENQUIRE NOW</span>
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Hamburger Toggle */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="lg:hidden p-2 rounded-full text-gray-700 hover:text-pristine-orange hover:bg-white/80 transition-colors focus:outline-none flex-shrink-0 pr-1 relative z-10"
