@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Download, Calendar, ArrowRight, Waves, ShieldCheck, Volume2, VolumeX, Video, Image as ImageIcon } from 'lucide-react';
+import { Download, Calendar, ArrowRight, Waves, ShieldCheck, Volume2, VolumeX, Video, Image as ImageIcon, MessageCircle, Flame } from 'lucide-react';
 import { PROJECT_DETAILS } from '../data/projectData';
 import { AmbientWaterBlobs } from './AmbientWaterBlobs';
 
@@ -28,15 +28,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBrochure, onOpenVipTour }) => 
     },
     {
       id: 'sky-lounge',
-      title: 'LEVEL 34 SKY LOUNGE & DECK',
-      url: 'https://static.wixstatic.com/media/53bf92_a732dc7d5fc64454b3fa7e982e4834ac~mv2.jpg/v1/fit/w_1800,h_1100,q_95,enc_avif,quality_auto/53bf92_a732dc7d5fc64454b3fa7e982e4834ac~mv2.jpg',
-      tag: 'SKY DECK'
+      title: 'LEVEL 34 ROOFTOP SKY LOUNGE',
+      url: 'https://static.wixstatic.com/media/53bf92_ba5d3cb5bf81471faf021d322affb1e5~mv2.jpg/v1/fit/w_1800,h_1100,q_95,enc_avif,quality_auto/53bf92_ba5d3cb5bf81471faf021d322affb1e5~mv2.jpg',
+      tag: 'SKY AMENITIES'
     }
   ];
 
   // Official YouTube Walkthrough Video
   const youtubeVideoId = "MAA4n_Z8nWE";
   const embedUrl = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=${isMuted ? 1 : 0}&loop=1&playlist=${youtubeVideoId}&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&playsinline=1&enablejsapi=1`;
+
+  const whatsappInquiryUrl = `https://wa.me/${PROJECT_DETAILS.whatsapp}?text=${encodeURIComponent("Hi Pristine Sales Team, I am interested in booking a VIP Site Visit for The Lord's Baner. Please share the pricing and available high-floor units.")}`;
 
   return (
     <section className="relative min-h-[96vh] flex items-center justify-center pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-gradient-to-b from-white via-sky-50/20 to-white">
@@ -81,11 +83,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBrochure, onOpenVipTour }) => 
 
       <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
         {/* Project Subtitle Pill */}
-        <div className="inline-flex items-center space-x-2 px-5 py-1.5 rounded-full colorful-chip mb-5 shadow-sm font-google">
+        <div className="inline-flex items-center space-x-2 px-5 py-1.5 rounded-full colorful-chip mb-4 shadow-sm font-google">
           <Waves className="w-3.5 h-3.5 text-pristine-orange animate-pulse" />
           <span className="text-xs uppercase font-bold tracking-[0.25em] text-pristine-orange">
             THE LORD'S BY PRISTINE DEVELOPER
           </span>
+        </div>
+
+        {/* Real-Time Live Scarcity Badge */}
+        <div className="inline-flex items-center space-x-2 px-4 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-700 text-[11px] font-bold tracking-wider mb-6 font-google animate-pulse">
+          <Flame className="w-3.5 h-3.5 text-pristine-orange flex-shrink-0" />
+          <span>EXCLUSIVE HIGH-FLOOR ALLOCATION (LEVELS 28–34) • ZERO BROKERAGE DIRECT DEVELOPER DESK</span>
         </div>
 
         {/* Location & Key Meta Pill Strip */}
@@ -114,8 +122,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBrochure, onOpenVipTour }) => 
           THE LORDS BY PRISTINE DEVELOPERS SETS NEW STANDARDS IN LUXURY AND GRANDEUR. DESIGNED FOR THOSE WHO SEEK THE FINEST, THE LORDS SEAMLESSLY BLENDS TIMELESS ARCHITECTURE WITH MODERN COMFORTS. A MASTERPIECE OF EXCLUSIVITY AND REFINEMENT, THE LORDS REDEFINES SOPHISTICATED LIVING WITH EVERY DETAIL CRAFTED TO PERFECTION.
         </p>
 
-        {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full max-w-md sm:max-w-none mb-10 font-google">
+        {/* Action Buttons: Brochure, Enquire & Direct WhatsApp */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 w-full max-w-xl mx-auto mb-10 font-google">
           <a
             href="/pristine-the-lords-baner-brochure-download-pdf"
             onClick={(e) => {
@@ -124,7 +132,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBrochure, onOpenVipTour }) => 
                 onOpenBrochure();
               }
             }}
-            className="btn-pristine-outline w-full sm:w-auto px-8 py-3.5 rounded-full text-xs tracking-wider flex items-center justify-center space-x-2 shadow-glass-luxury border border-white/90"
+            className="btn-pristine-outline w-full sm:w-auto px-7 py-3.5 rounded-full text-xs tracking-wider flex items-center justify-center space-x-2 shadow-glass-luxury border border-white/90"
           >
             <Download className="w-4 h-4 text-pristine-orange" />
             <span>DOWNLOAD BROCHURE</span>
@@ -132,12 +140,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBrochure, onOpenVipTour }) => 
 
           <button
             onClick={onOpenVipTour}
-            className="btn-pristine-orange w-full sm:w-auto px-8 py-3.5 rounded-full text-xs tracking-wider flex items-center justify-center space-x-2 shadow-pristine-orange group"
+            className="btn-pristine-orange w-full sm:w-auto px-7 py-3.5 rounded-full text-xs tracking-wider flex items-center justify-center space-x-2 shadow-pristine-orange group"
           >
             <Calendar className="w-4 h-4" />
             <span>ENQUIRE NOW</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </button>
+
+          <a
+            href={whatsappInquiryUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto px-7 py-3.5 rounded-full text-xs tracking-wider flex items-center justify-center space-x-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold shadow-md transition-all duration-200 whitespace-nowrap"
+          >
+            <MessageCircle className="w-4 h-4" />
+            <span>WHATSAPP VIP DESK</span>
+          </a>
         </div>
 
         {/* 🌟 HERO PERSPECTIVE & AUDIO CONTROLLER PILL */}
@@ -168,54 +186,22 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBrochure, onOpenVipTour }) => 
                 }`}
               >
                 <ImageIcon className="w-3.5 h-3.5" />
-                <span>STILL PERSPECTIVES</span>
+                <span>RESIDENCE SUITES</span>
               </button>
             </div>
 
-            {/* Audio Toggle */}
+            {/* Mute/Unmute toggle for video */}
             {viewMode === 'video' && (
               <button
                 onClick={() => setIsMuted(!isMuted)}
-                className="p-2 rounded-full hover:bg-white/80 text-gray-700 hover:text-pristine-orange transition-colors flex items-center space-x-1 px-3"
-                title={isMuted ? "Unmute Audio" : "Mute Audio"}
-                aria-label={isMuted ? "Unmute sound" : "Mute sound"}
+                className="p-2 mr-1 rounded-full text-gray-700 hover:text-pristine-orange hover:bg-white transition-all duration-200"
+                title={isMuted ? "Unmute Soundtrack" : "Mute Soundtrack"}
+                aria-label={isMuted ? "Unmute Soundtrack" : "Mute Soundtrack"}
               >
-                {isMuted ? (
-                  <VolumeX className="w-4 h-4 text-gray-500" />
-                ) : (
-                  <Volume2 className="w-4 h-4 text-pristine-orange animate-pulse" />
-                )}
-                <span className="text-[10px] uppercase font-bold text-gray-600 hidden sm:inline">
-                  {isMuted ? 'MUTED' : 'LIVE SOUND'}
-                </span>
+                {isMuted ? <VolumeX className="w-4 h-4 text-gray-500" /> : <Volume2 className="w-4 h-4 text-pristine-orange" />}
               </button>
             )}
           </div>
-
-          {/* Perspective Sub-Tabs (when Still Perspectives is active) */}
-          {viewMode === 'gallery' && (
-            <div className="flex items-center justify-center gap-2 mt-3 animate-fadeIn">
-              {heroSlides.map((slide, idx) => (
-                <button
-                  key={slide.id}
-                  onClick={() => setActiveSlide(idx)}
-                  className={`px-4 py-1 rounded-full text-[11px] font-bold tracking-wider transition-all ${
-                    activeSlide === idx
-                      ? 'bg-pristine-orange text-white shadow-sm'
-                      : 'bg-white/80 text-gray-700 hover:bg-white border border-gray-200'
-                  }`}
-                >
-                  {slide.tag}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* Official Financing Seal Banner */}
-        <div className="inline-flex items-center space-x-2 px-6 py-2 rounded-full glass-card-luxe border border-white/90 text-gray-800 text-xs font-google shadow-glass-luxury">
-          <span className="text-gray-500">THIS PROJECT IS FINANCED BY:</span>
-          <strong className="text-gray-900 font-bold tracking-wide">{PROJECT_DETAILS.financedBy}</strong>
         </div>
       </div>
     </section>
