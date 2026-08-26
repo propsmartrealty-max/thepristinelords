@@ -108,7 +108,7 @@ export const REAL_ESTATE_ARTICLES_BANK: RealEstateArticle[] = [
     keyTakeaways: [
       "Always verify 70% mandatory escrow deposit compliance under MahaRERA Section 4(2)(l)(D).",
       "The Lord's is backed by Capri Global Capital Limited (CGCL) ensuring audited financial stability.",
-      "Full commencement certificate (CC) and sanctioned floor plans are verified on maharera.mahaonline.gov.in."
+      "Full commencement certificate (CC) and sanctioned floor plans are verified on maharera.maharashtra.gov.in."
     ],
     fullContentMarkdown: "Real estate diligence in Maharashtra has been transformed by the Real Estate (Regulation and Development) Act..."
   },

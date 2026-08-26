@@ -9,7 +9,7 @@ export const PROJECT_DETAILS = {
   subLocation: "BANER - PASHAN LINK ROAD, SOMESHWARWADI",
   units: "3 & 4.5 BHK LUXURY RESIDENCES",
   reraNumber: "P52100078557",
-  reraLink: "https://maharera.mahaonline.gov.in",
+  reraLink: "https://maharera.maharashtra.gov.in/",
   financedBy: "CAPRI GLOBAL CAPITAL LIMITED (CGCL)",
   financeLogo: "https://static.wixstatic.com/media/53bf92_4b9b6e6c95284108bf3d4b5f2a38e6dd~mv2.png/v1/crop/x_69,y_0,w_2906,h_1687/fill/w_320,h_180,al_c,q_85,enc_avif,quality_auto/CGCL_Logo-1%5B1%5D_edited.png",
   phone: "+91 - 9209090022",

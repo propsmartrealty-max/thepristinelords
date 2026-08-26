@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { MahaReraTrustSection } from './components/MahaReraTrustSection';
 import { ProjectOverview } from './components/ProjectOverview';
 import { SpecificationsMatrix } from './components/SpecificationsMatrix';
 import { AmenitiesShowcase } from './components/AmenitiesShowcase';
@@ -123,6 +124,9 @@ export function App() {
             onOpenBrochure={handleOpenBrochure}
             onOpenVipTour={handleOpenVipTour}
           />
+
+          {/* Official MahaRERA Compliance & Trust Strip Directly Below Hero */}
+          <MahaReraTrustSection onShowToast={handleShowToast} />
 
           <ProjectOverview
             onOpenBrochure={handleOpenBrochure}
