@@ -1,4 +1,4 @@
-# ⚡ CLOUDFLARE ENTERPRISE WORKERS & PAGES CONFIGURATION
+# ⚡ CLOUDFLARE ENTERPRISE PAGES & WORKERS CONFIGURATION
 # Production Domain: https://pristinethelords.in
 # Mirror: https://thepristinelords.manisha-yewle87.workers.dev
 
@@ -9,7 +9,6 @@ pages_build_output_dir = "dist"
 
 [assets]
 directory = "./dist"
-binding = "ASSETS"
 
 [vars]
 ENVIRONMENT = "production"
