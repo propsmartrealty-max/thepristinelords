@@ -11,18 +11,33 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(self)
   Timing-Allow-Origin: *
   X-Powered-By: Cloudflare-Edge-Enterprise
+  Cache-Tag: pristine-the-lords, baner-pashan, luxury-real-estate-pune
 
 # 2. Immutable Long-Term Edge Cache for Vite Build Chunks
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
   CDN-Cache-Control: max-age=31536000
+  Cloudflare-CDN-Cache-Control: max-age=31536000
 
 # 3. Web Fonts Optimization & Fast Rendering
 /*.woff2
   Cache-Control: public, max-age=31536000, immutable
   Access-Control-Allow-Origin: *
 
-# 4. XML Sitemap & Robots Real-Time Freshness
+# 4. Media & Graphic Assets Edge Cache
+/*.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+  CDN-Cache-Control: max-age=2592000
+
+/*.jpg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+  CDN-Cache-Control: max-age=2592000
+
+/*.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+  CDN-Cache-Control: max-age=2592000
+
+# 5. XML Sitemap & Robots Real-Time Freshness
 /sitemap.xml
   Cache-Control: public, max-age=3600, stale-while-revalidate=86400
   Content-Type: application/xml; charset=utf-8
@@ -39,3 +54,7 @@
   Cache-Control: public, max-age=86400
   Content-Type: text/plain; charset=utf-8
   Access-Control-Allow-Origin: *
+
+/.well-known/security.txt
+  Cache-Control: public, max-age=86400
+  Content-Type: text/plain; charset=utf-8
