@@ -263,7 +263,7 @@ export async function onRequest(context) {
     const newHeaders = new Headers(transformedResponse.headers);
 
     // ⚡ Cloudflare Tiered Caching, Early Hints & Geo-Enrichment Headers
-    newHeaders.set('Link', `<${matchedSeo.canonicalUrl}>; rel="canonical", <https://fonts.googleapis.com>; rel="preconnect", <https://fonts.gstatic.com>; rel="preconnect"; crossorigin, <https://static.wixstatic.com>; rel="preconnect"; crossorigin`);
+    newHeaders.set('Link', `<${matchedSeo.canonicalUrl}>; rel="canonical", <https://www.google.com>; rel="preconnect", <https://fonts.googleapis.com>; rel="preconnect", <https://fonts.gstatic.com>; rel="preconnect"; crossorigin, <https://maps.googleapis.com>; rel="preconnect", <https://static.wixstatic.com>; rel="preconnect"; crossorigin`);
     newHeaders.set('X-Robots-Tag', 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1');
     newHeaders.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
     newHeaders.set('X-Content-Type-Options', 'nosniff');
