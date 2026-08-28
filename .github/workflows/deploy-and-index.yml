@@ -1,4 +1,4 @@
-name: 🚀 Enterprise CI/CD, Edge Build & Automated Search Engine Indexing
+name: 🚀 Enterprise CI/CD, Edge Build & Automated Google/Bing Search Indexing
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   build-and-index:
-    name: ⚡ Validate Build & Trigger Global Search Indexing
+    name: ⚡ Validate Build, Deploy & Trigger Real-Time Search Indexing
     runs-on: ubuntu-latest
 
     steps:
@@ -27,22 +27,20 @@ jobs:
       - name: 🧪 Execute TypeScript Compilation & Production Build
         run: npm run build
 
-      - name: 🤖 Automated Search Engine Ping & Instant Index Notification
+      - name: 📡 Real-Time Global IndexNow Protocol Broadcast
         run: |
           echo "================================================================="
-          echo "⚡ TRIGGERING INSTANT SEARCH ENGINE INDEXING FOR https://pristinethelords.in"
+          echo "⚡ TRIGGERING REAL-TIME SEARCH INDEXING FOR https://pristinethelords.in"
           echo "================================================================="
           
-          # 1. Ping Google Search Indexer with Hardened XML Sitemap
-          echo "📡 Pinging Google Search Engine Indexer..."
-          curl -s -L -o /dev/null -w "%{http_code}" "https://www.google.com/ping?sitemap=https://pristinethelords.in/sitemap.xml" || true
-          echo " ✅ Google Indexer Ping Sent."
+          # 1. Run authenticated IndexNow ping suite
+          bash scripts/ping-indexers.sh
 
-          # 2. Ping Bing / IndexNow Search Indexer
-          echo "📡 Pinging Bing Search Engine Indexer..."
-          curl -s -L -o /dev/null -w "%{http_code}" "https://www.bing.com/ping?sitemap=https://pristinethelords.in/sitemap.xml" || true
-          echo " ✅ Bing Indexer Ping Sent."
-
+      - name: 🌐 Pre-Warm Cloudflare Anycast Edge Cache for Googlebot
+        run: |
+          echo "🔥 Pre-warming Cloudflare Edge Cache for Googlebot fast-path..."
+          curl -s "https://pristinethelords.in/api/warm-cache" || true
+          echo " ✅ Edge cache pre-warm signal dispatched."
           echo "================================================================="
-          echo "🎉 ALL SEARCH ENGINE CRAWLER QUEUES NOTIFIED SUCCESSFULLY"
+          echo "🎉 ALL GLOBAL SEARCH INDEXATION WORKFLOWS COMPLETED SUCCESSFULLY"
           echo "================================================================="
