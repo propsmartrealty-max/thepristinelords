@@ -185,11 +185,14 @@ export default {
     if (url.pathname === '/api/indexnow') {
       return handleIndexNow();
     }
+    if (url.pathname === '/api/google-index') {
+      return handleGoogleIndex(env);
+    }
     if (url.pathname === '/api/warm-cache') {
       return handleWarmCache(url.origin);
     }
     if (url.pathname === '/api/index-all') {
-      return handleIndexAll(url.origin);
+      return handleIndexAll(url.origin, env);
     }
 
     // 3. 🤖 Detect Search Engine Crawlers & Social Platform Scrapers
@@ -359,12 +362,109 @@ async function handleWarmCache(origin) {
   });
 }
 
-async function handleIndexAll(origin) {
-  const [indexNowRes, warmCacheRes] = await Promise.allSettled([
+function base64UrlEncode(str) {
+  return btoa(str).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+async function handleGoogleIndex(env) {
+  const serviceAccountKeyJson = env && env.GOOGLE_SERVICE_ACCOUNT_KEY;
+  if (!serviceAccountKeyJson) {
+    return new Response(JSON.stringify({
+      status: "READY_FOR_CREDENTIALS",
+      message: "Google Indexing API Edge Dispatcher is live. To enable automatic RS256 OAuth JWT publishing, add GOOGLE_SERVICE_ACCOUNT_KEY in Cloudflare Dashboard (Settings > Environment Variables).",
+      supportedUrls: CANONICAL_URLS,
+      documentation: "https://developers.google.com/search/apis/indexing-api/v3/prereqs",
+      timestamp: new Date().toISOString()
+    }), {
+      status: 200,
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
+    });
+  }
+
+  try {
+    const creds = JSON.parse(serviceAccountKeyJson);
+    const now = Math.floor(Date.now() / 1000);
+    const header = { alg: "RS256", typ: "JWT" };
+    const claimSet = {
+      iss: creds.client_email,
+      scope: "https://www.googleapis.com/auth/indexing",
+      aud: "https://oauth2.googleapis.com/token",
+      exp: now + 3600,
+      iat: now
+    };
+
+    const pemHeader = "-----BEGIN PRIVATE KEY-----";
+    const pemFooter = "-----END PRIVATE KEY-----";
+    const pemContents = creds.private_key.replace(pemHeader, "").replace(pemFooter, "").replace(/\s/g, "");
+    const binaryDer = Uint8Array.from(atob(pemContents), c => c.charCodeAt(0));
+
+    const cryptoKey = await crypto.subtle.importKey(
+      "pkcs8",
+      binaryDer.buffer,
+      { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+      false,
+      ["sign"]
+    );
+
+    const encodedHeader = base64UrlEncode(JSON.stringify(header));
+    const encodedClaimSet = base64UrlEncode(JSON.stringify(claimSet));
+    const signatureInput = `${encodedHeader}.${encodedClaimSet}`;
+    const signature = await crypto.subtle.sign("RSASSA-PKCS1-v1_5", cryptoKey, new TextEncoder().encode(signatureInput));
+    const encodedSignature = base64UrlEncode(String.fromCharCode(...new Uint8Array(signature)));
+    const jwt = `${signatureInput}.${encodedSignature}`;
+
+    const tokenResponse = await fetch("https://oauth2.googleapis.com/token", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=${jwt}`
+    });
+
+    const tokenData = await tokenResponse.json();
+    if (!tokenData.access_token) {
+      throw new Error(`Google OAuth failed: ${JSON.stringify(tokenData)}`);
+    }
+
+    const accessToken = tokenData.access_token;
+    const indexingResults = [];
+    for (const targetUrl of CANONICAL_URLS) {
+      const gResp = await fetch("https://indexing.googleapis.com/v3/urlNotifications:publish", {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${accessToken}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ url: targetUrl, type: "URL_UPDATED" })
+      });
+      const gData = await gResp.json();
+      indexingResults.push({ url: targetUrl, status: gResp.status, response: gData });
+    }
+
+    return new Response(JSON.stringify({
+      success: true,
+      message: "Successfully broadcasted 26 URLs to Google Indexing API v3",
+      totalSubmitted: indexingResults.length,
+      timestamp: new Date().toISOString(),
+      results: indexingResults
+    }), {
+      status: 200,
+      headers: { "Content-Type": "application/json", "Access-Control-Allow-Origin": "*" }
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({ success: false, error: err.message }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" }
+    });
+  }
+}
+
+async function handleIndexAll(origin, env) {
+  const [indexNowRes, googleIndexRes, warmCacheRes] = await Promise.allSettled([
     handleIndexNow(),
+    handleGoogleIndex(env),
     handleWarmCache(origin)
   ]);
   const indexNowData = indexNowRes.status === 'fulfilled' ? await indexNowRes.value.json().catch(() => null) : null;
+  const googleData = googleIndexRes.status === 'fulfilled' ? await googleIndexRes.value.json().catch(() => null) : null;
   const warmData = warmCacheRes.status === 'fulfilled' ? await warmCacheRes.value.json().catch(() => null) : null;
 
   return new Response(JSON.stringify({
@@ -372,6 +472,7 @@ async function handleIndexAll(origin) {
     message: "Master Global Indexing Protocol Executed from Cloudflare Edge Worker",
     timestamp: new Date().toISOString(),
     indexNow: indexNowData,
+    googleIndexing: googleData,
     edgeCachePreWarm: warmData
   }), {
     status: 200,
