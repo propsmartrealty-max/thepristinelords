@@ -109,6 +109,30 @@ export const PROGRAMMATIC_SEO_CONFIGS: Record<string, PageSeoConfig> = {
     canonicalUrl: "https://pristinethelords.in/pristine-the-lords-baner-contact-sales-office",
     keywords: "Pristine The Lords sales office, Pristine Developers contact number, book site visit Pristine The Lords"
   },
+  '/pristine-the-lords-baner-nri-investment-dubai-uae': {
+    title: "PRISTINE THE LORDS NRI DUBAI & UAE INVESTMENT DESK | PUNE LUXURY HOMES",
+    description: "DIRECT NRI REAL ESTATE INVESTMENT GATEWAY FOR UAE & DUBAI RESIDENTS INVESTING IN THE LORD'S BANER PUNE. ATTRACTIVE DIRHAM-TO-INR PARITY & REPATRIATION SUPPORT.",
+    canonicalUrl: "https://pristinethelords.in/pristine-the-lords-baner-nri-investment-dubai-uae",
+    keywords: "NRI Dubai property investment Pune, Pristine The Lords Dubai desk, buying flat in Pune from UAE"
+  },
+  '/pristine-the-lords-baner-nri-investment-usa': {
+    title: "PRISTINE THE LORDS NRI USA & SILICON VALLEY INVESTMENT GATEWAY PUNE",
+    description: "USD WEALTH ADVISORY FOR US-BASED NRIS & OCIS INVESTING IN HIGH-GROWTH WEST PUNE REAL ESTATE AT THE LORD'S BANER-PASHAN LINK ROAD.",
+    canonicalUrl: "https://pristinethelords.in/pristine-the-lords-baner-nri-investment-usa",
+    keywords: "NRI USA real estate Pune, Silicon Valley NRI luxury apartments Pune, USD to INR property investment"
+  },
+  '/pristine-the-lords-baner-nri-investment-uk': {
+    title: "PRISTINE THE LORDS NRI UK & LONDON INVESTMENT GATEWAY PUNE",
+    description: "STERLING GBP INVESTMENT GATEWAY FOR UK NRIS INVESTING IN 3 & 4.5 BHK PALATIAL RESIDENCES IN BANER PUNE WITH TIMELESS MARBLE CRAFTSMANSHIP.",
+    canonicalUrl: "https://pristinethelords.in/pristine-the-lords-baner-nri-investment-uk",
+    keywords: "NRI UK real estate investment Pune, London NRI luxury homes Baner, British Indian property investment"
+  },
+  '/pristine-the-lords-baner-nri-investment-singapore': {
+    title: "PRISTINE THE LORDS NRI SINGAPORE INVESTMENT GATEWAY PUNE",
+    description: "SINGAPORE SGD WEALTH ALLOCATION ADVISORY FOR THE LORD'S BY PRISTINE DEVELOPERS IN BANER PASHAN LINK ROAD PUNE.",
+    canonicalUrl: "https://pristinethelords.in/pristine-the-lords-baner-nri-investment-singapore",
+    keywords: "NRI Singapore real estate Pune, Singapore NRI flats Baner Pashan, SGD property investment India"
+  },
   '/pristine-the-lords-baner-pashan-link-road-investment-guide': {
     title: "BANER-PASHAN LINK ROAD LUXURY REAL ESTATE INVESTMENT GUIDE 2026 | PRISTINE RESEARCH",
     description: "IN-DEPTH RESEARCH REPORT: WHY BANER-PASHAN LINK ROAD IS PUNE'S TOP LUXURY REAL ESTATE INVESTMENT CORRIDOR. CAPITAL APPRECIATION, METRO CONNECTIVITY & HNI MIGRATION.",

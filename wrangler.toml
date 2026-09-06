@@ -1,8 +1,9 @@
-# ⚡ CLOUDFLARE ENTERPRISE PAGES & WORKERS CONFIGURATION
+# ⚡ CLOUDFLARE ENTERPRISE HIGH-END EDGE SEO WORKER & PAGES CONFIGURATION
 # Production Domain: https://pristinethelords.in
 # Mirror: https://thepristinelords.manisha-yewle87.workers.dev
 
 name = "thepristinelords"
+main = "src/worker.js"
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
 pages_build_output_dir = "dist"

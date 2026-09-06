@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "tsc && vite build && node scripts/generate-edge-pages.js",
     "preview": "vite preview",
     "index:ping": "bash scripts/ping-indexers.sh"
   },
